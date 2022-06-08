@@ -1,0 +1,112 @@
+body {
+    background-color: #aba08a;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #486e9d;
+    padding: 20px;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.bloc-logo {
+    width: auto;
+}
+
+.bigger-logo {
+    width: 150px;
+}
+
+.smaller-logo {
+    display: none;
+}
+
+.bloc-links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.link {
+    letter-spacing: 0.2em;
+    margin: auto;
+}
+
+.linky {
+    padding: 10px;
+    color: #363437;
+}
+
+/* Bouton Burger non visible en grand écran */
+
+.button-burger {
+    display: none;
+}
+
+/* Divider Header */
+
+.custom-shape-divider-top-1654685571 .shape-fill {
+    fill: #486e9d;
+}
+
+/* Menu Burger */
+
+@media screen and (max-width: 767px) {
+    header {
+        flex-direction: column;
+    }
+
+    .button-burger {
+        display: flex;
+    }
+
+    .burger {
+        width: 3em;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .bloc-links {
+        display: none;
+    }
+
+    .show-list {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding-top: 50px;
+    }
+
+    .bloc-logo {
+        text-align: center;
+    }
+
+    /* On switch les logos ! */
+
+    .smaller-logo {
+        display: block;
+        width: 100px;
+        margin: auto;
+    }
+
+    .bigger-logo {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .lien-header {
+        letter-spacing: 0;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .lien-header {
+        font-weight: bold;
+        font-size: 10px;
+    }
+}
