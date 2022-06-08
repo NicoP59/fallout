@@ -1,3 +1,136 @@
 main {
-    background-color: #aba08a;
+    background-color: #ffffff;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+h1,
+h2 {
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 0.2em;
+    color: #363437;
+    text-align: center;
+    font-size: 35px;
+}
+
+h2 {
+    margin-bottom: 50px;
+}
+
+.vault-tec {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+}
+
+.img-vaulttec {
+    width: 500px;
+    animation: Vault-Tec 1s ease 0s 1 normal forwards;
+}
+
+/* PRESENTATION */
+
+.presentation {
+    background-color: #486e9d;
+    border: 3px solid #e2da47;
+    border-radius: 97% 3% 97% 3% / 3% 97% 3% 97%;
+    width: 80%;
+    margin: auto;
+    padding: 50px;
+    font-family: monospace;
+}
+
+.Vault-Tec-titre {
+    color: #e2da47;
+    font-size: 25px;
+    padding: 15px;
+    letter-spacing: 0.1em;
+}
+
+.presentation-p {
+    padding: 35px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.p-vaulttec {
+    padding: 5px;
+}
+
+ul {
+    padding: 20px;
+}
+
+.li-vaulttec {
+    list-style-type: none;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.button-insc,
+.button-co {
+    margin: 15px;
+    padding: 20px 100px;
+    border-radius: 10px;
+    border: 3px solid #e2da47;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 0.2em;
+    color: #363437;
+}
+
+.span {
+    color: #e2da47;
+    font-weight: bold;
+}
+
+/* GALLERIE */
+
+#gallery {
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+    width: 90%;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.special-titre-gallery {
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 0.2em;
+    color: #363437;
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+.special-div {
+    padding: 20px;
+}
+
+.special-titre {
+    padding-bottom: 20px;
+}
+
+.special-img {
+    width: 200px;
+    border: 3px solid #363437;
+}
+
+@keyframes Vault-Tec {
+    0% {
+        opacity: 0;
+        transform: rotate(-540deg) scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
 }

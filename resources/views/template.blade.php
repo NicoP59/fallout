@@ -21,7 +21,6 @@
         </div>
         <div class="bloc-logo">
             <img src="{{ asset('img/templates/logo.png') }}" alt="Fallout" class="bigger-logo">
-            <img src="{{ asset('img/templates/smaller-logo.png') }}" alt="Fallout" class="smaller-logo">
         </div>
         <div class="bloc-links" id="bloc-links">
             <div class="link">
