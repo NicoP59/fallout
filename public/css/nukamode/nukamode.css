@@ -1,0 +1,12 @@
+/* NUKA MOD */
+
+#nuka-mode {
+    position: absolute;
+    padding: 20px;
+    right: 0;
+    cursor: pointer;
+}
+
+#nuka {
+    width: 50px;
+}

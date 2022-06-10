@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/templates/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nukamode/nukamode.css') }}">
     <link rel="stylesheet" href="{{ asset('css/templates/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/templates/footer.css') }}">
-    <title>Fall Out</title>
+    <link rel="stylesheet"
+        href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css') }}" />
+    <title>Vault Tec Corporation</title>
 </head>
 
 <body>
+
+    {{-- NUKA MODE --}}
+
+    <div id="nuka-mode">
+        <img id="nuka" src="{{ asset('img/nukamode/vaultmode.svg') }}" />
+    </div>
 
     {{-- HEADER --}}
     <header>
@@ -24,7 +33,7 @@
         </div>
         <div class="bloc-links" id="bloc-links">
             <div class="link">
-                <a href="#" class="linky">Accueil</a>
+                <a href="{{ asset('/') }}" class="linky">Accueil</a>
             </div>
             <div class="link">
                 <a href="#" class="linky">Abris</a>
@@ -40,6 +49,12 @@
             </div>
             <div class="link">
                 <a href="#" class="linky">Se connecter</a>
+            </div>
+            <div class="link">
+                <a href="#" class="linky">Mon profil</a>
+            </div>
+            <div class="link">
+                <a href="#" class="linky">Déconnexion</a>
             </div>
         </div>
     </header>
@@ -80,3 +95,4 @@
 </html>
 
 <script src="/js/burger.js"></script>
+<script src="/js/nukamode/nukamode.js"></script>
