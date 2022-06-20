@@ -1,6 +1,6 @@
 footer {
-    background-color: #e2da47;
-    color: #363437;
+    background-color: var(--color-footer);
+    color: var(--color-footer-paragraphs);
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     text-align: center;
 }
@@ -12,5 +12,5 @@ footer {
 /* Divider Header */
 
 .custom-shape-divider-top-1654680663 .shape-fill {
-    fill: #aba08a;
+    fill: var(--color-divider-footer);
 }
