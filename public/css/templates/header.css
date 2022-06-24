@@ -1,25 +1,22 @@
 body {
-    background-color: #aba08a;
+    background-color: var(--color-body);
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #486e9d;
-    padding: 20px;
+    background-color: var(--color-header);
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 20px;
 }
 
 .bloc-logo {
+    padding-top: 50px;
     width: auto;
+    text-align: center;
+    padding-bottom: 50px;
 }
 
 .bigger-logo {
-    width: 150px;
-}
-
-.smaller-logo {
-    display: none;
+    width: 200px;
 }
 
 .bloc-links {
@@ -31,11 +28,16 @@ header {
 .link {
     letter-spacing: 0.2em;
     margin: auto;
+    padding: 20px;
 }
 
 .linky {
     padding: 10px;
-    color: #363437;
+    color: var(--color-linkys);
+}
+
+#nuka-link {
+    display: var(--display-nuka-link);
 }
 
 /* Bouton Burger non visible en grand écran */
@@ -47,14 +49,14 @@ header {
 /* Divider Header */
 
 .custom-shape-divider-top-1654685571 .shape-fill {
-    fill: #486e9d;
+    fill: var(--color-divider-header);
 }
 
 /* Menu Burger */
 
 @media screen and (max-width: 767px) {
     header {
-        flex-direction: column;
+        padding: 20px;
     }
 
     .button-burger {
@@ -78,23 +80,10 @@ header {
         display: flex;
         flex-direction: column;
         height: 100vh;
-        padding-top: 50px;
     }
 
     .bloc-logo {
         text-align: center;
-    }
-
-    /* On switch les logos ! */
-
-    .smaller-logo {
-        display: block;
-        width: 100px;
-        margin: auto;
-    }
-
-    .bigger-logo {
-        display: none;
     }
 }
 
