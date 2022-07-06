@@ -12,9 +12,13 @@
     <main>
 
         <body>
-            <h1>PRENDS TON AVENIR EN MAIN !</h1>
-            <h2>PROTEGE LE AVEC</h2>
-
+            @if (Session::has('iduser'))
+                <h1>{{ Session::get('prenom') }}, PRENDS TON AVENIR EN MAIN !</h1>
+                <h2>PROTEGE LE AVEC</h2>
+            @else
+                <h1>PRENDS TON AVENIR EN MAIN !</h1>
+                <h2>PROTEGE LE AVEC</h2>
+            @endif
             <article class="vault-tec">
                 <img src="{{ asset('img/templates/LOGO.png') }}" alt="Vault-Tec" class="img-vaulttec">
             </article>
@@ -94,8 +98,7 @@
                         </div>
                         <div class="special-div">
                             <p class="special-titre">ENDURANCE</p>
-                            <img src="{{ asset('img/home/endurance.jpg') }}" alt="SPECIAL Endurance"
-                                class="special-img">
+                            <img src="{{ asset('img/home/endurance.jpg') }}" alt="SPECIAL Endurance" class="special-img">
                         </div>
                         <div class="special-div">
                             <p class="special-titre">CHARISME</p>
