@@ -33,7 +33,7 @@
         </div>
         <div class="bloc-links" id="bloc-links">
             <div class="link">
-                <a href="{{ asset('/') }}" class="linky">Accueil</a>
+                <a href="/" class="linky">Accueil</a>
             </div>
             <div class="link">
                 <a href="#" class="linky">Abris</a>
@@ -42,7 +42,7 @@
                 <a href="#" class="linky">Boutique</a>
             </div>
             <div id="nuka-link" class="link">
-                <a href="{{ asset('/nuka-world') }}" class="linky">Nuka World</a>
+                <a href="/nuka-world" class="linky">Nuka World</a>
             </div>
             <div class="link">
                 <a href="#" class="linky">Gestion d'utilisateur</a>
@@ -51,13 +51,13 @@
                 <a href="#" class="linky">Contact</a>
             </div>
             <div class="link">
-                <a href="#" class="linky">Se connecter</a>
+                <a href="/connexion" class="linky">Se connecter</a>
             </div>
             <div class="link">
                 <a href="#" class="linky">Mon profil</a>
             </div>
             <div class="link">
-                <a href="#" class="linky">Déconnexion</a>
+                <a href="/deconnexion" class="linky">Déconnexion</a>
             </div>
         </div>
     </header>

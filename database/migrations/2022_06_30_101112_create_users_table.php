@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('iduser');
-            $table->foreignId('idabri')->constrained('abris');
-            $table->foreignId('iditem')->constrained('items');
-            $table->foreignId('idconfrerie')->constrained('confreries');
+            $table->foreignId('idabri')->nullable()->constrained('abris');
+            $table->foreignId('iditem')->nullable()->constrained('items');
+            $table->foreignId('idconfrerie')->nullable()->constrained('confreries');
             $table->string('nom');
             $table->string('prenom');
             $table->tinyInteger('age')->nullable();
