@@ -54,7 +54,9 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
 
+        // MiddleWare pour rajouter la classe "Est connecté"
         'isLogged' => \App\Http\Middleware\isLogged::class,
+        // MiddleWare pour rajouter la classe "Non connecté"
         'NotLogged' => \App\Http\Middleware\NotLogged::class,
 
         'auth' => \App\Http\Middleware\Authenticate::class,
