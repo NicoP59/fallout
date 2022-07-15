@@ -44,21 +44,27 @@
             <div id="nuka-link" class="link">
                 <a href="/nuka-world" class="linky">Nuka World</a>
             </div>
+            {{-- @if (request()->user()->isAdmin()) --}}
             <div class="link">
                 <a href="#" class="linky">Gestion d'utilisateur</a>
             </div>
+            {{-- @endif --}}
             <div class="link">
                 <a href="#" class="linky">Contact</a>
             </div>
-            <div class="link">
-                <a href="/connexion" class="linky">Se connecter</a>
-            </div>
-            <div class="link">
-                <a href="#" class="linky">Mon profil</a>
-            </div>
-            <div class="link">
-                <a href="/deconnexion" class="linky">Déconnexion</a>
-            </div>
+            @if (Session::has('iduser'))
+                <div class="link">
+                    <a href="/mon-profil" class="linky">Mon profil</a>
+                </div>
+                <div class="link">
+                    <a href="/deconnexion" class="linky">Déconnexion</a>
+                </div>
+            @else
+                <div class="link">
+                    <a href="/connexion" class="linky">Se connecter</a>
+                </div>
+            @endif
+
         </div>
     </header>
 

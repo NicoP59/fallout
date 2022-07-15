@@ -12,7 +12,9 @@
     <main>
 
         <body>
+            {{-- Si la session contient un id de session --}}
             @if (Session::has('iduser'))
+                {{-- On affiche ce message de bienvenue avec le prénom de session --}}
                 <h1>{{ Session::get('prenom') }}, PRENDS TON AVENIR EN MAIN !</h1>
                 <h2>PROTEGE LE AVEC</h2>
             @else
@@ -62,8 +64,8 @@
                 {{-- BOUTONS INSCRIPTION / CONNEXION --}}
 
                 <section class="buttons">
-                    <button class="button-insc">INSCRIPTION</button>
-                    <button class="button-co">CONNEXION</button>
+                    <button class="button-insc"><a href="/inscription">INSCRIPTION</a></button>
+                    <button class="button-co"><a href="/connexion">CONNEXION</a></button>
                 </section>
             </article>
 
