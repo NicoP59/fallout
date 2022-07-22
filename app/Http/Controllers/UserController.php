@@ -25,6 +25,11 @@ class UserController extends Controller
         return view('users.MonCompte');
     }
 
+        // Fonction qui va charger la view "Modification d'avatar" dans le dossier users
+        public function AffichageAvatar() {
+            return view('users.UpdateAvatar');
+        }
+
     // ****************************** ACTIONS ****************************** /
 
     // Fonction pour réaliser l'inscription

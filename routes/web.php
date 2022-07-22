@@ -39,6 +39,7 @@ Route::get('/deconnexion', 'App\Http\Controllers\UserController@DeconnexionActio
 
 // MON COMPTE
 Route::get('/mon-profil', 'App\Http\Controllers\UserController@AffichageMonCompte')->middleware('isLogged');
+Route::get('/modifier-avatar', 'App\Http\Controllers\UserController@AffichageAvatar')->middleware('isLogged');
 Route::post('/mon-profil', 'App\Http\Controllers\UserController@UpdateAction')->middleware('isLogged');
 
 // GESTION UTILISATEUR

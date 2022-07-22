@@ -27,10 +27,9 @@
         <div class="avatar">
             <img src="{{ Session::get('avatar') }}" alt="" class="img-avatar">
         </div>
-        {{-- <div class="form-group">
-            <label for="form-Avatar">Changer mon avatar</label>
-            <input type="file" name="avatar" id="form-Avatar" class="form-Avatar">
-        </div> --}}
+        <div class="form-group">
+            <a href="/modifier-avatar">Changer mon avatar</a>
+        </div>
         <div class="form-group">
             <label for="nom">Nom de famille</label>
             <input type="text" name="nom" class="nom" value="{{ Session::get('nom') }}">
