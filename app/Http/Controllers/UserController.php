@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -26,7 +25,7 @@ class UserController extends Controller
         return view('users.MonCompte');
     }
 
-    // ****************************** ACTION ****************************** /
+    // ****************************** ACTIONS ****************************** /
 
     // Fonction pour réaliser l'inscription
     public function InscriptionAction(Request $request)
@@ -140,11 +139,11 @@ class UserController extends Controller
             'mdp' => ['required'],
             'password_confirmation' => ["required"],
         ]);
-     
+    
         // Permettra de rechercher l'utilisateur avec son iduser
         $user = User::where('iduser', session('iduser'));
 
-        // POUR PLUS TARD
+    
         // if(request('avatar') != "") {
         //     $user->avatar = request('avatar')->store('avatar', 'public');
         //     // store va dans le dossier avatar qui est dans le dossier public

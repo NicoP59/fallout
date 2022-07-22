@@ -1,14 +1,33 @@
 @extends('template')
+
+<head>
+    <link rel="stylesheet" href="{{ asset('css/authentification/account.css') }}">
+</head>
+
 @section('content')
     <h2>Mon profil</h2>
+
+    <article>
+        <div class="verified">
+            {{ session('isVerified') == null ? 'NOT VERIFIED' : 'VERIFIED' }}
+        </div>
+        <div class="lunchbox-div">
+            {{-- Là où sera tous nos emojis -> slot --}}
+            <div class="slot"></div>
+            <img src="img/profile/lunchbox.png" class="lunchbox" id="id-lunchbox" alt="">
+        </div>
+        <div class="items-div" id="items-div">
+            Prout
+        </div>
+    </article>
 
     <form method="POST" action="/mon-profil" enctype="multipart/form-data">
         @csrf
 
-        {{-- <div class="avatar">
-            <img src="" alt="" class="img-avatar">
+        <div class="avatar">
+            <img src="{{ Session::get('avatar') }}" alt="" class="img-avatar">
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="form-Avatar">Changer mon avatar</label>
             <input type="file" name="avatar" id="form-Avatar" class="form-Avatar">
         </div> --}}
@@ -40,4 +59,7 @@
         </div>
 
     </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="/js/lunchbox.js"></script>
 @endsection

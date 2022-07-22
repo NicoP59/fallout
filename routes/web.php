@@ -41,3 +41,6 @@ Route::get('/deconnexion', 'App\Http\Controllers\UserController@DeconnexionActio
 Route::get('/mon-profil', 'App\Http\Controllers\UserController@AffichageMonCompte')->middleware('isLogged');
 Route::post('/mon-profil', 'App\Http\Controllers\UserController@UpdateAction')->middleware('isLogged');
 
+// GESTION UTILISATEUR
+
+Route::get('/gestion-utilisateur', 'App\Http\Controllers\UserManagementController@AffichageGestion')->middleware('isAdmin');

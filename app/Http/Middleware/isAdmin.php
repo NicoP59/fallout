@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class isLogged
+class isAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class isLogged
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!session()->has('iduser')) {
-            return redirect('/connexion')->with('fail', 'Vous devez être connecté');
+        if(session('type') != "admin") {
+            return redirect('/');
         }
         return $next($request);
     }

@@ -7,14 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-
     protected $fillable  = [
-
         "nom",
         "prenom",
         "email",
         "password",
-
     ];
 
     use HasFactory;

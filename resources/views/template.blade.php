@@ -44,11 +44,11 @@
             <div id="nuka-link" class="link">
                 <a href="/nuka-world" class="linky">Nuka World</a>
             </div>
-            {{-- @if (request()->user()->isAdmin()) --}}
-            <div class="link">
-                <a href="#" class="linky">Gestion d'utilisateur</a>
-            </div>
-            {{-- @endif --}}
+            @if (session('type') == 'admin')
+                <div class="link">
+                    <a href="/gestion-utilisateur" class="linky">Gestion d'utilisateur</a>
+                </div>
+            @endif
             <div class="link">
                 <a href="#" class="linky">Contact</a>
             </div>
@@ -90,11 +90,11 @@
                 suppression d'une image qui vous appartient, merci de nous contacter.
             </p>
             <p>
-                Ceci est un projet scolaire qui a juste pour but de m'exercer sur le framework
+                Ceci est un projet scolaire qui a juste pour but de nous exercer sur le framework
                 Laravel.
             </p>
             <p>
-                © Copyright / Caroline Dorchies - Bethesda / 2022
+                © Copyright / Caroline Dorchies - Nicolas Payne - Bethesda / 2022
             </p>
         </div>
     </footer>
