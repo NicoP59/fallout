@@ -25,6 +25,7 @@
 }
 
 .lunchbox {
+    cursor: pointer;
     margin: 0 auto;
     width: 6em;
     font-size: 30px;
