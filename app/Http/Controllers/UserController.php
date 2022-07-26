@@ -73,7 +73,7 @@ class UserController extends Controller
 
         // Si il y a bien un utilisateur d'enregistré on renvoit à la page d'accueil
         if ($user != null) {
-            return redirect('/');
+            return redirect('/connexion');
         } else {
         // Si l'utilisateur est vide on renvoit à la page inscription
             return redirect('/inscription');
@@ -118,6 +118,10 @@ class UserController extends Controller
             return redirect('/connexion');
         }
     }
+
+    // public function ItemAction() {
+    //     $item = User::where('iduser', '=', )
+    // }
 
     // Fonction pour la déconnexion
     public function DeconnexionAction()

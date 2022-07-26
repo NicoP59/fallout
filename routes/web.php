@@ -45,3 +45,8 @@ Route::post('/mon-profil', 'App\Http\Controllers\UserController@UpdateAction')->
 // GESTION UTILISATEUR
 
 Route::get('/gestion-utilisateur', 'App\Http\Controllers\UserManagementController@AffichageGestion')->middleware('isAdmin');
+
+
+//test MAIL
+Route::get('/message', "App\Http\Controllers\MessageController@formMessageGoogle");
+Route::post('/message', "App\Http\Controllers\MessageController@sendMessageGoogle")->name('send.message.google');
