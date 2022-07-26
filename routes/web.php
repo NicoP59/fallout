@@ -41,3 +41,8 @@ Route::get('/deconnexion', 'App\Http\Controllers\UserController@DeconnexionActio
 Route::get('/mon-profil', 'App\Http\Controllers\UserController@AffichageMonCompte')->middleware('isLogged');
 Route::post('/mon-profil', 'App\Http\Controllers\UserController@UpdateAction')->middleware('isLogged');
 
+
+
+//test MAIL
+Route::get('/message', "App\Http\Controllers\MessageController@formMessageGoogle");
+Route::post('/message', "App\Http\Controllers\MessageController@sendMessageGoogle")->name('send.message.google');

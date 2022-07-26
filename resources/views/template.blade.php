@@ -50,7 +50,7 @@
             </div>
             {{-- @endif --}}
             <div class="link">
-                <a href="#" class="linky">Contact</a>
+                <a href="/message" class="linky">Contact</a>
             </div>
             @if (Session::has('iduser'))
                 <div class="link">
