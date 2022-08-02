@@ -43,10 +43,9 @@ Route::get('/modifier-avatar', 'App\Http\Controllers\UserController@AffichageAva
 Route::post('/mon-profil', 'App\Http\Controllers\UserController@UpdateAction')->middleware('isLogged');
 
 // GESTION UTILISATEUR
-
 Route::get('/gestion-utilisateur', 'App\Http\Controllers\UserManagementController@AffichageGestion')->middleware('isAdmin');
 
 
-//test MAIL
+// MAIL
 Route::get('/message', "App\Http\Controllers\MessageController@formMessageGoogle");
 Route::post('/message', "App\Http\Controllers\MessageController@sendMessageGoogle")->name('send.message.google');

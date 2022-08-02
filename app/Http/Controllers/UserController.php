@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -22,13 +24,18 @@ class UserController extends Controller
 
     // Fonction qui va charger la view "Mon Compte" dans le dossier users
     public function AffichageMonCompte() {
-        return view('users.MonCompte');
+        $session = session('iduser');
+        $items = Item::where('iduser', '=', $session)->get();
+        // dd($items);
+        // $total = $items->count();
+        // dd($total);
+        return view('users.MonCompte')->with('items', $items);
     }
 
-        // Fonction qui va charger la view "Modification d'avatar" dans le dossier users
-        public function AffichageAvatar() {
-            return view('users.UpdateAvatar');
-        }
+    // Fonction qui va charger la view "Modification d'avatar" dans le dossier users
+    public function AffichageAvatar() {
+        return view('users.UpdateAvatar');
+    }
 
     // ****************************** ACTIONS ****************************** /
 
@@ -118,10 +125,6 @@ class UserController extends Controller
             return redirect('/connexion');
         }
     }
-
-    // public function ItemAction() {
-    //     $item = User::where('iduser', '=', )
-    // }
 
     // Fonction pour la déconnexion
     public function DeconnexionAction()

@@ -32,6 +32,10 @@
     animation: LunchBox 2s ease 0s infinite normal forwards;
 }
 
+.img-items {
+    width: 100px;
+}
+
 .items-div {
     display: none;
 }

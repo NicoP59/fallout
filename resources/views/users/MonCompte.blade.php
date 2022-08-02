@@ -11,14 +11,22 @@
         <div class="verified">
             {{ session('isVerified') == null ? 'NOT VERIFIED' : 'VERIFIED' }}
         </div>
-        <div class="lunchbox-div">
+        <form class="lunchbox-div" method="POST" action="/mon-profil">
+            @csrf
             {{-- Là où sera tous nos emojis -> slot --}}
             <div class="slot"></div>
             <img src="img/profile/lunchbox.png" class="lunchbox" id="id-lunchbox" alt="">
-        </div>
-        <div class="items-div" id="items-div">
-            Prout
-        </div>
+            <div class="items-div" id="items-div">
+                <h1>Mes items</h1>
+                <div class="items">
+                    @foreach ($items as $item)
+                        <img src="{{ $item->img }}" class="img-items" alt="">
+                        <p>{{ $item->item }}</p>
+                    @endforeach
+                </div>
+            </div>
+        </form>
+
     </article>
 
     <form method="POST" action="/mon-profil" enctype="multipart/form-data">
