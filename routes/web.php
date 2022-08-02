@@ -43,6 +43,16 @@ Route::post('/mon-profil', 'App\Http\Controllers\UserController@UpdateAction')->
 
 
 
-//test MAIL
+//MAIL
 Route::get('/message', "App\Http\Controllers\MessageController@formMessageGoogle");
 Route::post('/message', "App\Http\Controllers\MessageController@sendMessageGoogle")->name('send.message.google');
+
+
+//test forget mdp
+Route::get('/forget-password', 'App\Http\Controllers\ForgotPasswordController@getEmail');
+Route::post('/forget-password', 'App\Http\Controllers\ForgotPasswordController@postEmail');
+
+//reset mdp
+
+Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@getPassword');
+Route::post('/reset-password', 'App\Http\Controllers\ResetPasswordController@updatePassword');
