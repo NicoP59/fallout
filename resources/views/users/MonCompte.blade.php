@@ -6,29 +6,40 @@
 
 @section('content')
     <h2>Mon profil</h2>
+    <section class="verified">
+        {{ session('isVerified') == null ? 'NOT VERIFIED' : 'VERIFIED' }}
+    </section>
 
-    <article>
-        <div class="verified">
-            {{ session('isVerified') == null ? 'NOT VERIFIED' : 'VERIFIED' }}
-        </div>
-        <form class="lunchbox-div" method="POST" action="/mon-profil">
-            @csrf
-            {{-- Là où sera tous nos emojis -> slot --}}
-            <div class="slot"></div>
-            <img src="img/profile/lunchbox.png" class="lunchbox" id="id-lunchbox" alt="">
-            <div class="items-div" id="items-div">
-                <h1>Mes items</h1>
-                <div class="items">
-                    @foreach ($items as $item)
-                        <img src="{{ $item->img }}" class="img-items" alt="">
-                        <p>{{ $item->item }}</p>
-                    @endforeach
+    @if ($items == null)
+        {{-- ENTÊTE DU PROFIL --}}
+        <article>
+            <form class="lunchbox-div" method="POST" action="/items">
+                @csrf
+                {{-- Là où sera tous nos emojis -> slot --}}
+                <div class="slot"></div>
+                <img src="img/profile/lunchbox.png" class="lunchbox" id="id-lunchbox" onclick="openLunch() && fiesta()">
+                <div class="items-div" id="items-div">
+                    <h1>Mes items</h1>
+                    <section id="items-generate" class="items-generate"></section>
                 </div>
-            </div>
-        </form>
+            </form>
+        </article>
+    @else
+        <article>
+            {{-- SI ITEMS IL Y A, MONTREZ LES --}}
+            @foreach ($items as $item)
+                <div class="item">
+                    <img src="{{ $item->img }}" class="img-items" alt="">
+                    <p>{{ $item->item }}</p>
+                </div>
+            @endforeach
+        </article>
+    @endif
 
-    </article>
 
+
+
+    {{-- INFORMATIONS DU PROFIL --}}
     <form method="POST" action="/mon-profil" enctype="multipart/form-data">
         @csrf
 
@@ -69,4 +80,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="/js/lunchbox.js"></script>
+    <script src="/js/items.js"></script>
 @endsection

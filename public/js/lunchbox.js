@@ -1,24 +1,14 @@
-const lunchBox = document.getElementById("id-lunchbox");
 const items = document.getElementById("items-div");
-let open;
+let open = 0;
 
 const containerSlot = document.querySelector(".slot");
 const emojis = ["☢️", "☣️", "💥", "💣", "☠️", "🔪", "💸", "💉", "✨"];
 
-lunchBox.addEventListener("click", openLunch);
-lunchBox.addEventListener("click", fiesta);
-
 function openLunch() {
     if (open == 0) {
-        lunchBox.src = "img/profile/nuclear-cloud.png";
-        lunchBox.style.animation = "none";
         items.style.display = "block";
         open++;
     } else {
-        lunchBox.src = "img/profile/lunchbox.png";
-        lunchBox.style.display = "block";
-        lunchBox.style.animation =
-            "LunchBox 2s ease 0s infinite normal forwards";
         items.style.display = "none";
         open = 0;
     }

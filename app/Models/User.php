@@ -15,6 +15,7 @@ class User extends Model
         "prenom",
         "email",
         "password",
+        "avatar",
     ];
 
     use HasFactory;

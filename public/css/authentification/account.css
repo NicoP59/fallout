@@ -40,6 +40,12 @@
     display: none;
 }
 
+.items-generate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @keyframes LunchBox {
     0%,
     100% {
