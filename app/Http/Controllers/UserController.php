@@ -184,6 +184,7 @@ class UserController extends Controller
         request()->session()->put([
             'avatar' => request('avatar')
         ]);
+        $putUserAvatar->save();
         
         return redirect('/mon-profil');
     }
