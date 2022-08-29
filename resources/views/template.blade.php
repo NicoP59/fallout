@@ -44,7 +44,7 @@
             <div id="nuka-link" class="link">
                 <a href="/nuka-world" class="linky">Nuka World</a>
             </div>
-            @if (session('type') == 'admin')
+            @if (session('type') == 'Administrateur')
                 <div class="link">
                     <a href="/gestion-utilisateur" class="linky">Gestion d'utilisateur</a>
                 </div>
