@@ -173,19 +173,18 @@ class UserController extends Controller
         return redirect('/mon-profil');
     }
 
-    // Fonction pour modifier l'avatar <-------- A MODIFIER
+    // Fonction pour modifier l'avatar
     public function UpdateAvatarAction(Request $request) {
         $request->validate([
             'avatar' => ['required'],
         ]);
 
         $putUserAvatar = User::where('iduser', session('iduser'));
-        $putUserAvatar->update(['avatar' =>request('avatar')]);
+        $putUserAvatar->update(['avatar' => request('avatar')]);
         request()->session()->put([
             'avatar' => request('avatar')
         ]);
-        $putUserAvatar->save();
-        
+
         return redirect('/mon-profil');
     }
 
