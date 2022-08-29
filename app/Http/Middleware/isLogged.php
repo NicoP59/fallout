@@ -17,7 +17,7 @@ class isLogged
     public function handle(Request $request, Closure $next)
     {
         if (!session()->has('iduser')) {
-            return redirect('/connexion');
+            return redirect('/connexion')->with('fail', 'Vous devez être connecté');
         }
         return $next($request);
     }

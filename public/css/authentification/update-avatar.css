@@ -1,0 +1,9 @@
+.avatar-div {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.img-avatar {
+    width: 10em;
+}

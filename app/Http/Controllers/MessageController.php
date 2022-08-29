@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//Importation des classes pour le mail
+// Importation des classes pour le mail
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Mail\Mailable;
@@ -25,8 +25,8 @@ class MessageController extends Controller
     {
 
         #1. Validation de la requête
-        // en laravel request est déjà une function de laravel
-        // plus besoin de mettre Request $request ça c'est du Symfony
+        // En laravel request est déjà une function de laravel
+        // Plus besoin de mettre Request $request ça c'est du Symfony
         $this->validate(request(), ['message' => 'bail|required']);
 
         #2. Récupération des utilisateurs

@@ -10,14 +10,12 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 
 class User extends Model
 {
-
     protected $fillable  = [
-
         "nom",
         "prenom",
         "email",
         "password",
-
+        "avatar",
     ];
 
     use HasFactory;

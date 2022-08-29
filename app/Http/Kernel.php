@@ -58,6 +58,8 @@ class Kernel extends HttpKernel
         'isLogged' => \App\Http\Middleware\isLogged::class,
         // MiddleWare pour rajouter la classe "Non connecté"
         'NotLogged' => \App\Http\Middleware\NotLogged::class,
+        // MiddleWare pour rajouter la classe "Est administrateur"
+        'isAdmin' => \App\Http\Middleware\isAdmin::class,
 
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

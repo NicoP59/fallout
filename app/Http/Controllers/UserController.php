@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Item;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function __construct(
+        Request $request
+    ){
+        $this->request = $request;
+    }
+
     // Fonction qui va charger la view "Inscription" dans le dossier users
     public function AffichageFormulaireInscription()
     {
@@ -23,10 +30,24 @@ class UserController extends Controller
 
     // Fonction qui va charger la view "Mon Compte" dans le dossier users
     public function AffichageMonCompte() {
-        return view('users.MonCompte');
+
+        $session = session('iduser');
+        $items = Item::where('iduser', '=', $session)->get();
+
+        if($items->isEmpty()){
+            return view('users.MonCompte')->with('items', null);
+        }else{
+            return view('users.MonCompte')->with('items', $items);
+        }
+        
     }
 
-    // ****************************** ACTION ****************************** /
+    // Fonction qui va charger la view "Modification d'avatar" dans le dossier users
+    public function AffichageAvatar() {
+        return view('users.UpdateAvatar');
+    }
+
+    // ****************************** ACTIONS ****************************** /
 
     // Fonction pour réaliser l'inscription
     public function InscriptionAction(Request $request)
@@ -69,7 +90,7 @@ class UserController extends Controller
 
         // Si il y a bien un utilisateur d'enregistré on renvoit à la page d'accueil
         if ($user != null) {
-            return redirect('/');
+            return redirect('/connexion');
         } else {
         // Si l'utilisateur est vide on renvoit à la page inscription
             return redirect('/inscription');
@@ -88,7 +109,7 @@ class UserController extends Controller
         // Dans une variable on stocke la requête suivante :
         $user = User::where('email', '=', request('email'))->first();
 
-        // Si il y a un utilisateur
+        // Si il y a un utilisateurAffichageMonCompte
         if ($user) {
             // Si le mot de passe hashé correspond au mot de passe de la base de données
             if (Hash::check(request('mdp'), $user->mdp)) {
@@ -132,6 +153,41 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    // Fonction pour poster les items
+    public function PostItems() {
+        $this->request->validate([
+            '*' => ['required'],
+        ]);
+
+        for($i = 1; $i < count($this->request->all(), COUNT_NORMAL); $i++){
+            
+            $stock = 'item-'. $i;
+            $tab = explode("*", $this->request->get($stock));
+            $items =  new Item;
+            $items->item = $tab[1];
+            $items->img = $tab[0];
+            $items->iduser = session()->get("iduser");
+            $items->save();
+        }
+
+        return redirect('/mon-profil');
+    }
+
+    // Fonction pour modifier l'avatar
+    public function UpdateAvatarAction(Request $request) {
+        $request->validate([
+            'avatar' => ['required'],
+        ]);
+
+        $putUserAvatar = User::where('iduser', session('iduser'));
+        $putUserAvatar->update(['avatar' => request('avatar')]);
+        request()->session()->put([
+            'avatar' => request('avatar')
+        ]);
+
+        return redirect('/mon-profil');
+    }
+
     // Fonction pour modifier le profil
     public function UpdateAction(Request $request) {
     
@@ -140,19 +196,9 @@ class UserController extends Controller
             'mdp' => ['required'],
             'password_confirmation' => ["required"],
         ]);
-     
+    
         // Permettra de rechercher l'utilisateur avec son iduser
         $user = User::where('iduser', session('iduser'));
-
-        // POUR PLUS TARD
-        // if(request('avatar') != "") {
-        //     $user->avatar = request('avatar')->store('avatar', 'public');
-        //     // store va dans le dossier avatar qui est dans le dossier public
-
-        //     request()->session()->put([
-        //         'avatar' => $user->avatar
-        //     ]);
-        // }
 
         if(request('nom') != "") {
             $user->update(['nom' => request('nom')]);
