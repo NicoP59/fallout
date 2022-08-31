@@ -10,12 +10,20 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 
 class User extends Model
 {
+    protected $hidden = [
+        "mdp",
+        "type",
+    ];
+    
     protected $fillable  = [
         "nom",
         "prenom",
         "email",
-        "password",
+        "mdp",
+        "sexe",
+        "age",
         "avatar",
+        "type",
     ];
 
     use HasFactory;
