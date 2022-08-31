@@ -52,8 +52,6 @@
 
                 <form class="col-md-5 col-lg-4 p-5 m-2 bg-dark text-white m-auto" method="POST" action="/inscription">
 
-
-
                     @csrf
 
                     <h2>INSCRIPTION</h2>
