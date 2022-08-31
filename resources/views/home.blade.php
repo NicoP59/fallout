@@ -74,8 +74,7 @@
             <article class="special">
                 <h3 id="special-titre-section" class="special-titre-section"></h3>
                 <div class="special-image-div">
-                    <img src="{{ asset('img/home/special.png') }}" alt="Special" id="special-image"
-                        class="special-image">
+                    <img src="{{ asset('img/home/special.png') }}" alt="Special" id="special-image" class="special-image">
                 </div>
                 <p class="special-p">
                     Votre <span class="span">force</span>, <span class="span">perception</span>, <span
@@ -95,8 +94,7 @@
                         </div>
                         <div class="special-div">
                             <p class="special-titre">PERCEPTION</p>
-                            <img src="{{ asset('img/home/perception.jpg') }}" alt="SPECIAL Perception"
-                                class="special-img">
+                            <img src="{{ asset('img/home/perception.jpg') }}" alt="SPECIAL Perception" class="special-img">
                         </div>
                         <div class="special-div">
                             <p class="special-titre">ENDURANCE</p>
@@ -128,4 +126,4 @@
     </main>
 @endsection
 
-<script src="/js/typewritter.js"></script>
+<script src="/js/typewritters/typewritter.js"></script>
