@@ -127,4 +127,4 @@
     </main>
 @endsection
 
-<script src="/js/typewritter.js"></script>
+<script src="/js/typewritters/typewritter.js"></script>
