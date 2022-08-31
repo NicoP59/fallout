@@ -95,7 +95,7 @@ const itemsArray = [
         "Hubris Comics - Grognak, lost in the snows of lust!",
     ],
     [
-        "img/items/Hubris-Magazines/hubris-grognal-cometh.jpg",
+        "img/items/Hubris-Magazines/hubris-grognak-cometh.jpg",
         "Hubris Comics - Grognak, Cometh the Trickster",
     ],
     [

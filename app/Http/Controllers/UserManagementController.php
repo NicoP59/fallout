@@ -12,3 +12,5 @@ class UserManagementController extends Controller
             return view('usersManagement.userManagement');
         }
 }
+
+// ****************************** ACTIONS ****************************** /
