@@ -9,32 +9,31 @@ use Illuminate\Queue\SerializesModels;
 
 class MessageGoogle extends Mailable
 {
-    use Queueable, SerializesModels;
-      public $data; // Données pour la vue
+  use Queueable, SerializesModels;
+  public $data; // Données pour la vue
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($data)
-    {
-         $this->data = $data;
-        //pas oublier de remettre le $data dans le construct au dessus
-    }
+  /**
+   * Create a new message instance.
+   *
+   * @return void
+   */
+  public function __construct($data)
+  {
+    $this->data = $data;
+    //pas oublier de remettre le $data dans le construct au dessus
+  }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
-        // dd($this->data['message']);
-        
-        return $this->from("testfoadsofip@gmail.com") // L'expéditeur
-                    ->subject("Message via le SMTP Google") // Le sujet
-                    ->view("emails.template-mail-exemple",['data'=>$this->data]); // La vue
-    }
+  /**
+   * Build the message.
+   *
+   * @return $this
+   */
+  public function build()
+  {
+    // dd($this->data['message']);
+
+    return $this->from("testfoadsofip@gmail.com") // Le destinataire
+      ->subject("Vault-Tec Corporation Messagerie") // Le sujet du message
+      ->view("emails.template-mail-exemple", ['data' => $this->data]); // La vue
+  }
 }
-

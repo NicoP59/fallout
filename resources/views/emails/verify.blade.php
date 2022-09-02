@@ -1,11 +1,29 @@
-<div class="container">
-     <div class="row justify-content-center">
-         <div class="col-md-8">
-             <div class="card">
-                    <div class="card-header">Verify Your Email Address</div>
-                    <a href="http://localhost:8888/reset-password/{{ $token }}">Click Here</a>.
-                </div>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vault Tec Corporation</title>
+</head>
+
+<main>
+
+    <body>
+
+        <h1 style="color:#486E9D; text-align:center;margin-top: 50px;">
+            Vault-Tec Corporation - Réinitialisation de mot passe
+        </h1>
+
+        <div class="card-header"
+            style="margin-left: auto; margin-right: auto; width: 500px; background-color:#486E9D; 
+            border: 2px solid #e2da47; color: #fff; text-align:center;">
+            <p>
+                Vérifiez votre adresse e-mail :
+            </p>
+            <p>
+                <a href="http://localhost:8888/reset-password/{{ $token }}" style="color: #e2da47;">Lien de
+                    réinitialisation</a>
+            </p>
         </div>
-    </div>
-</div>
+
+    </body>
+</main>
