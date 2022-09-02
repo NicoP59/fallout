@@ -46,7 +46,8 @@
 
                 <p class="welcome-contact">Bienvenue dans le système d'oubli de mot de passe intégré de RobCo Industries
                     (SRICS).
-                    Remplissez le champ ci-dessous afin de recevoir un lien de réinitialisation de mot de passe par mail
+                    Remplissez les champs ci-dessous afin de recevoir un lien de réinitialisation de mot de passe par
+                    mail
                     et appuyez sur le bouton ENVOYER.
                     Nous vous remercions de la confiance que vous accordez à RobCo Industries.
                 </p>

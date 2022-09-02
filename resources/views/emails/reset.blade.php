@@ -44,10 +44,11 @@
 
                 <p class="clear"></p>
 
-                <p class="welcome-contact">Bienvenue dans le système de réinitialisation de mot de passe intégré de RobCo Industries
+                <p class="welcome-contact">Bienvenue dans le système de réinitialisation de mot de passe intégré de
+                    RobCo Industries
                     (SRICS).
-                    Remplissez le champ ci-dessous afin de modifier votre  mot de passe
-                    et appuyez sur le bouton CONFIRMÉ.
+                    Remplissez les champs ci-dessous afin de modifier votre mot de passe
+                    et appuyez sur le bouton CONFIRMER.
                     Nous vous remercions de la confiance que vous accordez à RobCo Industries.
                 </p>
 
@@ -57,14 +58,15 @@
 
                 <form method="POST" action="/reset-password">
                     @csrf
-                    <h2> Modifié mots de passe</h2>
+                    <h2>Modifier votre mot de passe</h2>
                     <input type="hidden" name="token" value="{{ $token }}">
                     <div class="form-group row">
                         <label for="email" class="col-md-4 col-form-label text-md-right">Email >>
-                            </label>
+                        </label>
 
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ $email ?? old('email') }}" autocomplete="email" autofocus placeholder="Entrez votre email">
+                            name="email" value="{{ $email ?? old('email') }}" autocomplete="email" autofocus
+                            placeholder="Entrez votre email">
 
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -75,7 +77,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">Mots de passe >></label>
+                        <label for="password" class="col-md-4 col-form-label text-md-right">Mot de passe >></label>
 
                         <input id="password" type="password"
                             class="form-control @error('password') is-invalid @enderror" name="password"
@@ -91,8 +93,9 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirmer le mot de passe >>
-                            </label>
+                        <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirmer le mot de
+                            passe >>
+                        </label>
 
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
                             autocomplete="new-password" placeholder="Confirmé">
@@ -102,7 +105,7 @@
                     <div class="form-group row mb-0">
 
                         <button type="submit" class="btn btn-primary">
-                           CONFIRMÉ
+                            CONFIRMER
                         </button>
                     </div>
                 </form>
