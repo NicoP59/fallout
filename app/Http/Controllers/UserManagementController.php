@@ -17,14 +17,14 @@ class UserManagementController extends Controller
         // Fonction qui va charger la view "Gestion d'utilisateur" dans le dossier users
         public function AffichageAdminGestion()
         {
-            $users = User::where('type', '=', 'Administrateur')->get(['idabri','idconfrerie', 'age', 'sexe', 'isVerified', 'type', 'nom', 'prenom', 'avatar', 'email']);
+            $users = User::where('type', '=', 'Administrateur')->get(['iduser','idabri','idconfrerie', 'age', 'sexe', 'isVerified', 'type', 'nom', 'prenom', 'avatar', 'email']);
             return view('usersManagement.adminManagement')->with('users', $users);
         }
 
         // Fonction qui va charger la view "Gestion d'utilisateur" dans le dossier users
         public function AffichageUserGestion()
         {
-            $users = User::where('type', '=', 'Utilisateur')->get(['idabri','idconfrerie', 'age', 'sexe', 'isVerified', 'type', 'nom', 'prenom', 'avatar', 'email']);
+            $users = User::where('type', '=', 'Utilisateur')->get(['iduser', 'idabri','idconfrerie', 'age', 'sexe', 'isVerified', 'type', 'nom', 'prenom', 'avatar', 'email']);
             return view('usersManagement.userManagement')->with('users', $users);
         }
 
@@ -32,18 +32,18 @@ class UserManagementController extends Controller
         // ****************************** ACTIONS ****************************** /
 
 
-        public function UpdateToAdminAction(Request $request) {
+        public function UpdateToAdminAction(Request $request, $id) {
             $request->validate([
                 'type' => ['required'],
             ]);
-
-            $putToAdmin = User::where('iduser', '=', 'iduser');
+            
+            $putToAdmin = User::where('iduser', '=', $id)->first();
             dd($putToAdmin);
-            // $putToAdmin->update(['type' => request('type')]);
-            // request()->session()->put([
-            //     'type' => request('type')
-            // ]);
+            $putToAdmin->update(['type' => request('type')]);
+            request()->put([
+                'type' => request('type')
+            ]);
 
-            // return redirect('/gestion-administrateurs');
+            return redirect('/gestion-administrateurs');
         }
 }

@@ -12,7 +12,6 @@ class User extends Model
 {
     protected $hidden = [
         "mdp",
-        "type",
     ];
     
     protected $fillable  = [

@@ -19,16 +19,18 @@
                     <p>{{ $user->prenom }}</p>
                     <p>{{ $user->email }}</p>
                     <p>{{ $user->age }}</p>
-                    @if ($user->sexe == 0)
+                    @if ($user->sexe === 0)
                         <i class="bi bi-gender-female"></i>
-                    @else
+                    @elseif ($user->sexe === 1)
                         <i class="bi bi-gender-male"></i>
+                    @else
+                        <p>Non renseigné...</p>
                     @endif
                     <p>{{ $user->type }}</p>
                     <p>{{ $user->mdp }}</p>
                 </div>
                 <div>
-                    <form action="POST" action="/gestion-utilisateurs">
+                    <form method="POST" action="/gestion-utilisateurs">
                         @csrf
                         <div>
                             <label for="type">Changer en </label>

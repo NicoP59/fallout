@@ -215,6 +215,7 @@ a.button:focus {
 
 input[type="submit"],
 a.button {
+<<<<<<< HEAD
     background: transparent;
     border: 1px solid #00dd00;
     clear: both;
@@ -233,6 +234,27 @@ a.button {
 }
 
 input[type="submit"]:hover,
+=======
+	background: transparent;
+	border: 1px solid #00dd00;
+	clear: both;
+	color: #00dd00;
+	cursor: hand;
+	display: inline-block;
+	font-family: 'VT323', Courier;
+	font-size: 1em;
+	margin-bottom: 20px;
+	opacity: 0.25;
+	padding: 10px 100px;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+	z-index: 10;
+}
+
+
+input[type=submit]:hover,
+>>>>>>> edb329b08951ca2eecc0c1edeee072f2c3d265d0
 a.button:hover {
     background: #00dd00;
     color: #383838;
