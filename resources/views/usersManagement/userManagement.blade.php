@@ -30,7 +30,7 @@
                     <p>{{ $user->mdp }}</p>
                 </div>
                 <div>
-                    <form method="POST" action="/gestion-utilisateurs">
+                    <form method="POST" action="/gestion-utilisateurs/{{ $user->iduser }}">
                         @csrf
                         <div>
                             <label for="type">Changer en </label>

@@ -49,6 +49,7 @@ Route::get('/gestion', 'App\Http\Controllers\UserManagementController@AffichageG
 Route::get('/gestion-administrateurs', 'App\Http\Controllers\UserManagementController@AffichageAdminGestion')->middleware('isAdmin');
 Route::get('/gestion-utilisateurs', 'App\Http\Controllers\UserManagementController@AffichageUserGestion')->middleware('isAdmin');
 Route::post('/gestion-utilisateurs/{iduser}', 'App\Http\Controllers\UserManagementController@UpdateToAdminAction')->middleware('isAdmin');
+Route::post('/gestion-administrateurs/{iduser}', 'App\Http\Controllers\UserManagementController@UpdateToUserAction')->middleware('isAdmin');
 
 // MAIL
 Route::get('/message', "App\Http\Controllers\MessageController@formMessageGoogle");

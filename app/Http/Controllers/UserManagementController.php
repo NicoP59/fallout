@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class UserManagementController extends Controller
@@ -32,18 +33,33 @@ class UserManagementController extends Controller
         // ****************************** ACTIONS ****************************** /
 
 
-        public function UpdateToAdminAction(Request $request, $id) {
+        public function UpdateToAdminAction(Request $request) {
+
             $request->validate([
-                'type' => ['required'],
+                'type' => 'required',
             ]);
-            
-            $putToAdmin = User::where('iduser', '=', $id)->first();
-            dd($putToAdmin);
-            $putToAdmin->update(['type' => request('type')]);
-            request()->put([
-                'type' => request('type')
-            ]);
+        
+            DB::table('users')
+                ->where('iduser', $request->iduser)
+                ->update(
+                    ['type' => $request->type]
+                );
 
             return redirect('/gestion-administrateurs');
+        }
+
+        public function UpdateToUserAction(Request $request) {
+
+            $request->validate([
+                'type' => 'required',
+            ]);
+        
+            DB::table('users')
+                ->where('iduser', $request->iduser)
+                ->update(
+                    ['type' => $request->type]
+                );
+
+            return redirect('/gestion-utilisateurs');
         }
 }
