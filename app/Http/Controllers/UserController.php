@@ -84,7 +84,7 @@ class UserController extends Controller
         $user->mdp = bcrypt($mdp);
         // On met par défaut ces informations dans la base de données 
         $user->avatar = 'img/avatar/default-profile.png';
-        $user->type = 'user';
+        $user->type = 'Utilisateur';
         // On sauvegarde
         $user->save();
 

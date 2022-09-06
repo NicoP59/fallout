@@ -46,7 +46,7 @@
             </div>
             @if (session('type') == 'Administrateur')
                 <div class="link">
-                    <a href="/gestion-utilisateur" class="linky">Gestion d'utilisateur</a>
+                    <a href="/gestion" class="linky">Gestion d'utilisateur</a>
                 </div>
             @endif
             <div class="link">

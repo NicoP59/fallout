@@ -13,28 +13,26 @@
     <article>
         @foreach ($users as $user)
             <section id="div-carte-user">
-                <img src="{{ $user->avatar }}" class="avatar" alt="">
-                <div>
+                <div id="div-carte-user">
+                    <img src="{{ $user->avatar }}" class="avatar" alt="">
                     <p>{{ $user->nom }}</p>
                     <p>{{ $user->prenom }}</p>
                     <p>{{ $user->email }}</p>
                     <p>{{ $user->age }}</p>
-                    @if ($user->sexe === 0)
+                    @if ($user->sexe == 0)
                         <i class="bi bi-gender-female"></i>
-                    @elseif ($user->sexe === 1)
-                        <i class="bi bi-gender-male"></i>
                     @else
-                        <p>Non renseigné...</p>
+                        <i class="bi bi-gender-male"></i>
                     @endif
                     <p>{{ $user->type }}</p>
                     <p>{{ $user->mdp }}</p>
                 </div>
                 <div>
-                    <form method="POST" action="/gestion-utilisateurs/{{ $user->iduser }}">
+                    <form method="POST" action="/gestion-administrateurs/{{ $user->iduser }}">
                         @csrf
                         <div>
                             <label for="type">Changer en </label>
-                            <input type="submit" name="type" id="change-to-admin" value="Administrateur">
+                            <input type="submit" name="type" id="change-to-admin" value="Utilisateur">
                         </div>
                     </form>
                 </div>
