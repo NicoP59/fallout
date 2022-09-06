@@ -9,6 +9,7 @@
 
     <body>
 
+
         <h1 style="color:#486E9D; text-align:center;margin-top: 50px;">
             Vault-Tec Corporation - Réinitialisation de mot passe
         </h1>

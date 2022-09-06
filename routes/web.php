@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,3 +59,7 @@ Route::post('/forget-password', 'App\Http\Controllers\ForgotPasswordController@p
 // RÉINITIALISER LE MOT DE PASSE 
 Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@getPassword');
 Route::post('/reset-password', 'App\Http\Controllers\ResetPasswordController@updatePassword');
+
+
+//test verif mail
+
