@@ -57,7 +57,8 @@
                     </ul>
                     </p>
                     <p class="p-vaulttec">Pour accéder à toutes ces fonctionnalités, n'hésitez pas à vous <span
-                            class="span">inscrire</span> ou vous <span class="span">connecter</span> :
+                            class="span"><a href="/inscription" class="linky">inscrire</a></span> ou vous <span
+                            class="span"><a href="/connexion" class="linky">connecter</a></span> :
                     </p>
                 </section>
 

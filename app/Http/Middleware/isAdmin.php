@@ -16,7 +16,7 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session('type') != "admin") {
+        if(session('type') != "Administrateur") {
             return redirect('/');
         }
         return $next($request);

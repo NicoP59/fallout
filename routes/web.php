@@ -46,7 +46,11 @@ Route::get('/modifier-avatar', 'App\Http\Controllers\UserController@AffichageAva
 Route::post('/modifier-avatar', 'App\Http\Controllers\UserController@UpdateAvatarAction')->middleware('isLogged');
 
 // GESTION UTILISATEUR
-Route::get('/gestion-utilisateur', 'App\Http\Controllers\UserManagementController@AffichageGestion')->middleware('isAdmin');
+Route::get('/gestion', 'App\Http\Controllers\UserManagementController@AffichageGestion')->middleware('isAdmin');
+Route::get('/gestion-administrateurs', 'App\Http\Controllers\UserManagementController@AffichageAdminGestion')->middleware('isAdmin');
+Route::get('/gestion-utilisateurs', 'App\Http\Controllers\UserManagementController@AffichageUserGestion')->middleware('isAdmin');
+Route::post('/gestion-utilisateurs/{iduser}', 'App\Http\Controllers\UserManagementController@UpdateToAdminAction')->middleware('isAdmin');
+Route::post('/gestion-administrateurs/{iduser}', 'App\Http\Controllers\UserManagementController@UpdateToUserAction')->middleware('isAdmin');
 
 // MAIL
 Route::get('/message', "App\Http\Controllers\MessageController@formMessageGoogle");

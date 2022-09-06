@@ -14,12 +14,20 @@ use Illuminate\Auth\Events\Registered;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
+    protected $hidden = [
+        "mdp",
+    ];
+    
     protected $fillable  = [
+        "iduser",
         "nom",
         "prenom",
         "email",
-        "password",
+        "mdp",
+        "sexe",
+        "age",
         "avatar",
+        "type",
     ];
 
     use HasFactory, Notifiable;
