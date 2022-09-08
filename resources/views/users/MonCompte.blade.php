@@ -8,6 +8,17 @@
     <h2>Mon profil</h2>
     <section class="verified">
         {{ session('isVerified') == null ? 'NOT VERIFIED' : 'VERIFIED' }}
+
+        <div class="form-verif">
+            <input type="submit" class="btn " value="Verification">
+        </div>
+
+        <div class="verification-mail">
+            <a href="/verif-mail/{token}" class="verification">
+                Verification de mail 
+            </a>
+        </div>
+        
     </section>
 
     @if ($items == null)

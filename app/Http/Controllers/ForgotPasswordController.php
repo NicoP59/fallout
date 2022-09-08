@@ -19,6 +19,7 @@ class ForgotPasswordController extends Controller
   {
     $request->validate([
         'email' => 'required|email|exists:users',
+        
     ]);
 
     $bytes = random_bytes(strlen($request->email));

@@ -65,5 +65,6 @@ Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordControl
 Route::post('/reset-password', 'App\Http\Controllers\ResetPasswordController@updatePassword');
 
 
-//test verif mail
-
+//VÉRIFICATION DE MAIL
+Route::get('/verif-mail/{token}' , 'App\Http\Controllers\VerificationEmailController@getmail');
+Route::post('/verif-mail' , 'App\Http\Controllers\VerificationEmailController@updatemail');

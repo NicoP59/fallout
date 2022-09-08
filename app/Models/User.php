@@ -14,10 +14,8 @@ use Illuminate\Auth\Events\Registered;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    protected $hidden = [
-        "mdp",
-    ];
-    
+
+
     protected $fillable  = [
         "iduser",
         "nom",
@@ -28,13 +26,14 @@ class User extends Authenticatable implements MustVerifyEmail
         "age",
         "avatar",
         "type",
+        "isVerified",
     ];
 
     use HasFactory, Notifiable;
 
 
     protected $hidden = [
-        'password', 'remember_token',
+        'mdp', 'remember_token',
     ];
 
     /**
@@ -45,8 +44,6 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'isVerified' => 'timestamp',
     ];
-
-    
 }
 
 

@@ -13,6 +13,10 @@
         <h1 style="color:#486E9D; text-align:center;margin-top: 50px;">
             Vault-Tec Corporation - Réinitialisation de mot passe
         </h1>
+        <div style="text-align: center">
+            <img src="{{ $message->embed(public_path() . '/img/templates/LOGO.png') }}"
+                style="width: 200px; margin-bottom: 50px" />
+        </div>
 
         <div class="card-header"
             style="margin-left: auto; margin-right: auto; width: 500px; background-color:#486E9D; 
