@@ -66,5 +66,8 @@ Route::post('/reset-password', 'App\Http\Controllers\ResetPasswordController@upd
 
 
 //VÉRIFICATION DE MAIL
-Route::get('/verif-mail/{token}' , 'App\Http\Controllers\VerificationEmailController@getmail');
-Route::post('/verif-mail' , 'App\Http\Controllers\VerificationEmailController@updatemail');
+Route::get('/envoie-mail/{iduser}' , 'App\Http\Controllers\VerificationEmailController@envoieMail');
+//VÉRIFICATION DE MAIL CLICK BTN
+Route::get('/envoie-mail-btn' , 'App\Http\Controllers\VerificationEmailController@envoieMailAfterClickBtnVerif');
+// ROUTE DU MAIL 
+Route::get('/verif-mail/{token}' , 'App\Http\Controllers\VerificationEmailController@updatemail');

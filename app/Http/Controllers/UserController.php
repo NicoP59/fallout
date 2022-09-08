@@ -88,10 +88,9 @@ class UserController extends Controller
         $user->type = 'Utilisateur';
         // On sauvegarde
         $user->save();
-
         // Si il y a bien un utilisateur d'enregistré on renvoit à la page d'accueil
         if ($user != null) {
-            return redirect('/connexion');
+            return redirect(`/envoie-mail/`. $user->id);
         } else {
         // Si l'utilisateur est vide on renvoit à la page inscription
             return redirect('/inscription');
@@ -124,6 +123,7 @@ class UserController extends Controller
                     'email' => $user->email,
                     'avatar' => $user->avatar,
                     'type' => $user->type,
+                    'isVerified' => $user->isVerified,
                 ]);
                 // On redirige sur la page d'accueil
                 return redirect('/mon-profil');
