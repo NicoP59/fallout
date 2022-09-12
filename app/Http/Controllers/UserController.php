@@ -34,14 +34,19 @@ class UserController extends Controller
     // Fonction qui va charger la view "Mon Compte" dans le dossier users
     public function AffichageMonCompte()
     {
+        // Confréries
+        $sessionConfrerie = session('idconfrerie');
+        // Get permet d'obtenir une COLLECTION
+        $confreries = Confrerie::where("confrerie", $sessionConfrerie)->get();
 
+        // Items
         $session = session('iduser');
         $items = Item::where('iduser', '=', $session)->get();
 
         if ($items->isEmpty()) {
-            return view('users.MonCompte')->with('items', null);
+            return view('users.MonCompte')->with('items', null)->with('confreries', $confreries);
         } else {
-            return view('users.MonCompte')->with('items', $items);
+            return view('users.MonCompte')->with('items', $items)->with('confreries', $confreries);
         }
     }
 
@@ -127,6 +132,7 @@ class UserController extends Controller
                 request()->session()->put([
 
                     'iduser' => $user->iduser,
+                    'idconfrerie' =>$user->idconfrerie,
                     'nom' => $user->nom,
                     'prenom' => $user->prenom,
                     'email' => $user->email,
@@ -199,6 +205,22 @@ class UserController extends Controller
 
         return redirect('/mon-profil');
     }
+
+        // Fonction pour modifier la confrérie
+        public function UpdateConfrerieAction(Request $request)
+        {
+            $request->validate([
+                'confrerie' => ['required'],
+            ]);
+    
+            $putUserConfrerie = User::where('iduser', session('iduser'));
+            $putUserConfrerie->update(['idconfrerie' => request('confrerie')]);
+            request()->session()->put([
+                'idconfrerie' => request('confrerie')
+            ]);
+    
+            return redirect('/mon-profil');
+        }
 
     // Fonction pour modifier le profil
     public function UpdateAction(Request $request)

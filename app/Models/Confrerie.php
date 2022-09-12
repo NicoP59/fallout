@@ -9,10 +9,12 @@ class Confrerie extends Model
 {
 
     protected $fillable  = [
+        "confrerie",
         "img",
         "nom",
         "chef",
-        "description"
+        "description",
     ];
+
     use HasFactory;
 }

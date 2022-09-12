@@ -44,16 +44,21 @@
         </article>
     @endif
 
+    {{-- CONFRÉRIE --}}
     <article class="confreries">
-        <form action="">
-            @csrf
-
+        @if ($confreries->isEmpty())
             <h2>Choisissez votre confrérie</h2>
-            <a href='modifier-confrerie'>En savoir plus...</a>
-
-
-
-        </form>
+            <p>Aucune confrérie</p>
+        @else
+            <p>Ma confrérie</p>
+            {{-- Comme nous avons une collection nous utilisons cette méthode --}}
+            @foreach ($confreries as $confrerie)
+                <img src="{{ $confrerie->img }}" alt="" class="img-confrerie">
+                <p>{{ $confrerie->nom }}</p>
+                <p>{{ $confrerie->chef }}</p>
+            @endforeach
+        @endif
+        <a href='modifier-confrerie'>En savoir plus...</a>
     </article>
 
     {{-- INFORMATIONS DU PROFIL --}}
