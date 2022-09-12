@@ -71,3 +71,26 @@ Route::get('/envoie-mail/{iduser}', 'App\Http\Controllers\VerificationEmailContr
 Route::get('/envoie-mail-btn', 'App\Http\Controllers\VerificationEmailController@envoieMailAfterClickBtnVerif');
 // ROUTE DU MAIL 
 Route::get('/verif-mail/{token}', 'App\Http\Controllers\VerificationEmailController@updatemail');
+
+
+
+//Affichage et CRUD ABRI
+
+Route::get('/abris', 'App\Http\Controllers\AbriController@AffichageAbri');
+
+Route::get('/FormCreate',  'App\Http\Controllers\AbriController@AffichageFormCreate');
+
+Route::get('/FormUpdate/{id}',  'App\Http\Controllers\AbriController@AffichageFormUpdate');
+
+//crud
+
+Route::post('/FormCreate',  'App\Http\Controllers\AbriController@Create');
+
+Route::post('/FormUpdate/{id}',  'App\Http\Controllers\AbriController@Update');
+
+Route::get('/delete/{id}',  'App\Http\Controllers\AbriController@delete');
+
+
+//uppload image abris
+
+
