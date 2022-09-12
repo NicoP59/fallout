@@ -7,13 +7,15 @@ use App\Models\Item;
 use App\Models\Confrerie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
     public function __construct(
         Request $request
-    ){
+    ) {
         $this->request = $request;
     }
 
@@ -30,17 +32,17 @@ class UserController extends Controller
     }
 
     // Fonction qui va charger la view "Mon Compte" dans le dossier users
-    public function AffichageMonCompte() {
+    public function AffichageMonCompte()
+    {
 
         $session = session('iduser');
         $items = Item::where('iduser', '=', $session)->get();
 
-        if($items->isEmpty()){
+        if ($items->isEmpty()) {
             return view('users.MonCompte')->with('items', null);
-        }else{
+        } else {
             return view('users.MonCompte')->with('items', $items);
         }
-        
     }
 
     // Fonction qui va charger la view "Ma Confrérie" dans le dossier users
@@ -52,7 +54,8 @@ class UserController extends Controller
     }
 
     // Fonction qui va charger la view "Modification d'avatar" dans le dossier users
-    public function AffichageAvatar() {
+    public function AffichageAvatar()
+    {
         return view('users.UpdateAvatar');
     }
 
@@ -83,25 +86,22 @@ class UserController extends Controller
             return redirect('/inscription');
         }
 
-        // On met dans une variable un nouvel utilisateur grâce au model User.php
-        $user = new User;
-
         // On reprend les valeurs de l'utilisateur pour l'envoyer dans la base de données
-        $user->nom = $nom;
-        $user->prenom = $prenom;
-        $user->email = $email;
-        $user->mdp = bcrypt($mdp);
-        // On met par défaut ces informations dans la base de données 
-        $user->avatar = 'img/avatar/default-profile.png';
-        $user->type = 'Utilisateur';
-        // On sauvegarde
-        $user->save();
+        $lastInsertId = DB::table('users')->insertGetId([
+            "nom" => $nom,
+            "prenom" => $prenom,
+            "email" => $email,
+            "mdp" => bcrypt($mdp),
+            "avatar" => 'img/avatar/default-profile.png',
+            "type" => 'Utilisateur'
+        ]);
 
         // Si il y a bien un utilisateur d'enregistré on renvoit à la page d'accueil
-        if ($user != null) {
-            return redirect('/connexion');
+        if ($lastInsertId) {
+            // je pense qu'il ne donne pas l'id à la route
+            return redirect('/envoie-mail/'. $lastInsertId);
         } else {
-        // Si l'utilisateur est vide on renvoit à la page inscription
+            // Si l'utilisateur est vide on renvoit à la page inscription
             return redirect('/inscription');
         }
     }
@@ -132,6 +132,7 @@ class UserController extends Controller
                     'email' => $user->email,
                     'avatar' => $user->avatar,
                     'type' => $user->type,
+                    'isVerified' => $user->isVerified,
                 ]);
                 // On redirige sur la page d'accueil
                 return redirect('/mon-profil');
@@ -163,14 +164,15 @@ class UserController extends Controller
     }
 
     // Fonction pour poster les items
-    public function PostItems() {
+    public function PostItems()
+    {
         $this->request->validate([
             '*' => ['required'],
         ]);
 
-        for($i = 1; $i < count($this->request->all(), COUNT_NORMAL); $i++){
-            
-            $stock = 'item-'. $i;
+        for ($i = 1; $i < count($this->request->all(), COUNT_NORMAL); $i++) {
+
+            $stock = 'item-' . $i;
             $tab = explode("*", $this->request->get($stock));
             $items =  new Item;
             $items->item = $tab[1];
@@ -183,7 +185,8 @@ class UserController extends Controller
     }
 
     // Fonction pour modifier l'avatar
-    public function UpdateAvatarAction(Request $request) {
+    public function UpdateAvatarAction(Request $request)
+    {
         $request->validate([
             'avatar' => ['required'],
         ]);
@@ -198,25 +201,26 @@ class UserController extends Controller
     }
 
     // Fonction pour modifier le profil
-    public function UpdateAction(Request $request) {
-    
+    public function UpdateAction(Request $request)
+    {
+
         // Le mot de passe doit être confirmé
         $request->validate([
             'mdp' => ['required'],
             'password_confirmation' => ["required"],
         ]);
-    
+
         // Permettra de rechercher l'utilisateur avec son iduser
         $user = User::where('iduser', session('iduser'));
 
-        if(request('nom') != "") {
+        if (request('nom') != "") {
             $user->update(['nom' => request('nom')]);
             request()->session()->put([
                 'nom' => request('nom')
             ]);
         }
 
-        if(request('prenom') != "") {
+        if (request('prenom') != "") {
             $user->update(['prenom' => request('prenom')]);
 
             request()->session()->put([
@@ -224,7 +228,7 @@ class UserController extends Controller
             ]);
         }
 
-        if(request('email') != ""){
+        if (request('email') != "") {
             $user->update(['email' => request('email')]);
 
             request()->session()->put([
@@ -232,9 +236,8 @@ class UserController extends Controller
             ]);
         }
 
-        if(request('mdp') != "") {
+        if (request('mdp') != "") {
             $user->update(['mdp' => bcrypt(request('mdp'))]);
-
         }
 
         return redirect('/mon-profil');

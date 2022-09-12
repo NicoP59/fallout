@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Auth\Events\Registered;
 
 
-class User extends Model
+
+class User extends Authenticatable implements MustVerifyEmail
 {
-    protected $hidden = [
-        "mdp",
-    ];
-    
+
+
     protected $fillable  = [
         "iduser",
         "nom",
@@ -24,9 +26,24 @@ class User extends Model
         "age",
         "avatar",
         "type",
+        "isVerified",
     ];
 
-    use HasFactory;
+    use HasFactory, Notifiable;
+
+
+    protected $hidden = [
+        'mdp', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'isVerified' => 'timestamp',
+    ];
 }
 
 

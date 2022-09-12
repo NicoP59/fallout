@@ -7,7 +7,15 @@
 @section('content')
     <h1>Mon profil</h1>
     <section class="verified">
-        {{ session('isVerified') === null ? 'NOT VERIFIED' : 'VERIFIED' }}
+
+        @if (Session::get('isVerified') == null)
+            <div class="verification-mail">
+                <a href="/envoie-mail-btn" class="verification">
+                    Verification de mail
+                </a>
+            </div>
+        @endif
+
     </section>
 
     @if ($items == null)
