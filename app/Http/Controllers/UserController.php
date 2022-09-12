@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Item;
+use App\Models\Confrerie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -40,6 +41,14 @@ class UserController extends Controller
             return view('users.MonCompte')->with('items', $items);
         }
         
+    }
+
+    // Fonction qui va charger la view "Ma Confrérie" dans le dossier users
+
+    public function AffichageConfrerie() {
+
+        $confreries = Confrerie::all();
+        return view('users.UpdateConfrerie')->with('confreries', $confreries);
     }
 
     // Fonction qui va charger la view "Modification d'avatar" dans le dossier users

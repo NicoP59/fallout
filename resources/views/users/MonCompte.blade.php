@@ -5,7 +5,7 @@
 </head>
 
 @section('content')
-    <h2>Mon profil</h2>
+    <h1>Mon profil</h1>
     <section class="verified">
         {{ session('isVerified') === null ? 'NOT VERIFIED' : 'VERIFIED' }}
     </section>
@@ -36,8 +36,17 @@
         </article>
     @endif
 
+    <article class="confreries">
+        <form action="">
+            @csrf
+
+            <h2>Choisissez votre confrérie</h2>
+            <a href='modifier-confrerie'>En savoir plus...</a>
 
 
+
+        </form>
+    </article>
 
     {{-- INFORMATIONS DU PROFIL --}}
     <form method="POST" action="/mon-profil" enctype="multipart/form-data">
@@ -72,10 +81,6 @@
         <div class="form-group">
             <input type="submit" value="Modifier mon profil">
         </div>
-        <div class="form-group">
-            <a href="">Désactiver mon compte</a>
-        </div>
-
     </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>

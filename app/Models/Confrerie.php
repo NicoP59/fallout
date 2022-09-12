@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Confrerie extends Model
 {
+
+    protected $fillable  = [
+        "img",
+        "nom",
+        "chef",
+        "description"
+    ];
     use HasFactory;
 }
