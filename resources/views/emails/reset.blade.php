@@ -58,7 +58,7 @@
 
                 <form method="POST" action="/reset-password">
                     @csrf
-                    <h2>Modifier votre mot de passe</h2>
+                    <h2>Modifiez votre mot de passe</h2>
                     <input type="hidden" name="token" value="{{ $token }}">
                     <div class="form-group row">
                         <label for="email" class="col-md-4 col-form-label text-md-right">Email >>
@@ -81,7 +81,7 @@
 
                         <input id="password" type="password"
                             class="form-control @error('password') is-invalid @enderror" name="password"
-                            autocomplete="new-password" placeholder="Nouveaux mots de passe">
+                            autocomplete="new-password" placeholder="Nouveau mot de passe">
 
                         @error('password')
                             <span class="invalid-feedback" role="alert">

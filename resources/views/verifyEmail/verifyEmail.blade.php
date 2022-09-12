@@ -8,22 +8,27 @@
 <main>
 
     <body>
+
+
         <h1 style="color:#486E9D; text-align:center;margin-top: 50px;">
-            Vault-Tec Corporation - Messagerie
+            Vault-Tec Corporation - Vérification de Mail
         </h1>
         <div style="text-align: center">
             <img src="{{ $message->embed(public_path() . '/img/templates/LOGO.png') }}"
                 style="width: 200px; margin-bottom: 50px" />
         </div>
+
         <div class="card-header"
-            style="margin-left: auto; margin-right: auto; width: 700px; background-color:#486E9D; 
-            border: 2px solid #e2da47; color: #fff; text-align:left; padding: 20px;">
-
-            <h2 style="color: #e2da47;"> Expéditeur : {{ $data['email'] }}</h2>
-            <h2 style="color: #e2da47;"> Objet : {{ $data['subject'] }}</h2>
-            <h2 style="color: #fff;"> Message : {{ $data['message'] }}</h2>
-
+            style="margin-left: auto; margin-right: auto; width: 500px; background-color:#486E9D; 
+            border: 2px solid #e2da47; color: #fff; text-align:center;">
+            <p>
+                Vérifiez votre adresse e-mail :
+            </p>
+            <p>
+                <a href="http://localhost:8888/verif-mail/{{ $token }}" style="color: #e2da47;">Lien de
+                    vérification</a>
+            </p>
         </div>
-    </body>
 
+    </body>
 </main>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,3 +63,11 @@ Route::post('/forget-password', 'App\Http\Controllers\ForgotPasswordController@p
 // RÉINITIALISER LE MOT DE PASSE 
 Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@getPassword');
 Route::post('/reset-password', 'App\Http\Controllers\ResetPasswordController@updatePassword');
+
+
+// VÉRIFICATION DE MAIL
+Route::get('/envoie-mail/{iduser}', 'App\Http\Controllers\VerificationEmailController@envoieMail');
+// VÉRIFICATION DE MAIL CLICK BTN
+Route::get('/envoie-mail-btn', 'App\Http\Controllers\VerificationEmailController@envoieMailAfterClickBtnVerif');
+// ROUTE DU MAIL 
+Route::get('/verif-mail/{token}', 'App\Http\Controllers\VerificationEmailController@updatemail');
