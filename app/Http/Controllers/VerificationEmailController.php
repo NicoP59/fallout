@@ -22,7 +22,7 @@ class VerificationEmailController extends Controller
         $token = time() . 'n' . $hex . 'n' . $user->iduser;
 
         $request->email = $user->email;
-
+        
         Mail::send('verifyEmail.verifyEmail', ['token' => $token], function ($message) use ($request) {
             $message->to($request->email);
             $message->subject('verification mail Notification');

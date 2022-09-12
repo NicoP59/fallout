@@ -7,6 +7,7 @@
 @section('content')
     <h2>Mon profil</h2>
     <section class="verified">
+
         @if (Session::get('isVerified') == null)
             <div class="verification-mail">
                 <a href="/envoie-mail-btn" class="verification">
@@ -14,6 +15,7 @@
                 </a>
             </div>
         @endif
+
     </section>
 
     @if ($items == null)

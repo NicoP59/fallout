@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -76,22 +77,20 @@ class UserController extends Controller
             return redirect('/inscription');
         }
 
-        // On met dans une variable un nouvel utilisateur grâce au model User.php
-        $user = new User;
-
         // On reprend les valeurs de l'utilisateur pour l'envoyer dans la base de données
-        $user->nom = $nom;
-        $user->prenom = $prenom;
-        $user->email = $email;
-        $user->mdp = bcrypt($mdp);
-        // On met par défaut ces informations dans la base de données 
-        $user->avatar = 'img/avatar/default-profile.png';
-        $user->type = 'Utilisateur';
-        // On sauvegarde
-        $user->save();
+        $lastInsertId = DB::table('users')->insertGetId([
+            "nom" => $nom,
+            "prenom" => $prenom,
+            "email" => $email,
+            "mdp" => bcrypt($mdp),
+            "avatar" => 'img/avatar/default-profile.png',
+            "type" => 'Utilisateur'
+        ]);
+
         // Si il y a bien un utilisateur d'enregistré on renvoit à la page d'accueil
-        if ($user != null) {
-            return redirect(`/envoie-mail/` . $user->iduser);
+        if ($lastInsertId) {
+            // je pense qu'il ne donne pas l'id à la route
+            return redirect('/envoie-mail/'. $lastInsertId);
         } else {
             // Si l'utilisateur est vide on renvoit à la page inscription
             return redirect('/inscription');
