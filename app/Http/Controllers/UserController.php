@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Item;
+use App\Models\Confrerie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -33,15 +34,28 @@ class UserController extends Controller
     // Fonction qui va charger la view "Mon Compte" dans le dossier users
     public function AffichageMonCompte()
     {
+        // Confréries
+        $sessionConfrerie = session('idconfrerie');
+        // Get permet d'obtenir une COLLECTION
+        $confreries = Confrerie::where("confrerie", $sessionConfrerie)->get();
 
+        // Items
         $session = session('iduser');
         $items = Item::where('iduser', '=', $session)->get();
 
         if ($items->isEmpty()) {
-            return view('users.MonCompte')->with('items', null);
+            return view('users.MonCompte')->with('items', null)->with('confreries', $confreries);
         } else {
-            return view('users.MonCompte')->with('items', $items);
+            return view('users.MonCompte')->with('items', $items)->with('confreries', $confreries);
         }
+    }
+
+    // Fonction qui va charger la view "Ma Confrérie" dans le dossier users
+
+    public function AffichageConfrerie() {
+
+        $confreries = Confrerie::all();
+        return view('users.UpdateConfrerie')->with('confreries', $confreries);
     }
 
     // Fonction qui va charger la view "Modification d'avatar" dans le dossier users
@@ -118,6 +132,7 @@ class UserController extends Controller
                 request()->session()->put([
 
                     'iduser' => $user->iduser,
+                    'idconfrerie' =>$user->idconfrerie,
                     'nom' => $user->nom,
                     'prenom' => $user->prenom,
                     'email' => $user->email,
@@ -190,6 +205,22 @@ class UserController extends Controller
 
         return redirect('/mon-profil');
     }
+
+        // Fonction pour modifier la confrérie
+        public function UpdateConfrerieAction(Request $request)
+        {
+            $request->validate([
+                'confrerie' => ['required'],
+            ]);
+    
+            $putUserConfrerie = User::where('iduser', session('iduser'));
+            $putUserConfrerie->update(['idconfrerie' => request('confrerie')]);
+            request()->session()->put([
+                'idconfrerie' => request('confrerie')
+            ]);
+    
+            return redirect('/mon-profil');
+        }
 
     // Fonction pour modifier le profil
     public function UpdateAction(Request $request)

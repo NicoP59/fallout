@@ -44,6 +44,9 @@ Route::post('/mon-profil', 'App\Http\Controllers\UserController@UpdateAction')->
 Route::post('/items', 'App\Http\Controllers\UserController@PostItems')->middleware('isLogged');
 Route::get('/modifier-avatar', 'App\Http\Controllers\UserController@AffichageAvatar')->middleware('isLogged');
 Route::post('/modifier-avatar', 'App\Http\Controllers\UserController@UpdateAvatarAction')->middleware('isLogged');
+Route::get('/modifier-confrerie', 'App\Http\Controllers\UserController@AffichageConfrerie')->middleware('isLogged');
+Route::post('/modifier-confrerie', 'App\Http\Controllers\UserController@UpdateConfrerieAction')->middleware('isLogged');
+
 
 // GESTION UTILISATEUR
 Route::get('/gestion', 'App\Http\Controllers\UserManagementController@AffichageGestion')->middleware('isAdmin');

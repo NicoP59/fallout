@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Confrerie extends Model
 {
+
+    protected $fillable  = [
+        "confrerie",
+        "img",
+        "nom",
+        "chef",
+        "description",
+    ];
+
     use HasFactory;
 }

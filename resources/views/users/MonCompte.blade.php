@@ -5,7 +5,7 @@
 </head>
 
 @section('content')
-    <h2>Mon profil</h2>
+    <h1>Mon profil</h1>
     <section class="verified">
 
         @if (Session::get('isVerified') == null)
@@ -44,8 +44,22 @@
         </article>
     @endif
 
-
-
+    {{-- CONFRÉRIE --}}
+    <article class="confreries">
+        @if ($confreries->isEmpty())
+            <h2>Choisissez votre confrérie</h2>
+            <p>Aucune confrérie</p>
+        @else
+            <p>Ma confrérie</p>
+            {{-- Comme nous avons une collection nous utilisons cette méthode --}}
+            @foreach ($confreries as $confrerie)
+                <img src="{{ $confrerie->img }}" alt="" class="img-confrerie">
+                <p>{{ $confrerie->nom }}</p>
+                <p>{{ $confrerie->chef }}</p>
+            @endforeach
+        @endif
+        <a href='modifier-confrerie'>En savoir plus...</a>
+    </article>
 
     {{-- INFORMATIONS DU PROFIL --}}
     <form method="POST" action="/mon-profil" enctype="multipart/form-data">
@@ -80,10 +94,6 @@
         <div class="form-group">
             <input type="submit" value="Modifier mon profil">
         </div>
-        <div class="form-group">
-            <a href="">Désactiver mon compte</a>
-        </div>
-
     </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>

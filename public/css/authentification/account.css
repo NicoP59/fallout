@@ -46,6 +46,10 @@
     align-items: center;
 }
 
+.img-confrerie {
+    width: 5em;
+}
+
 @keyframes LunchBox {
     0%,
     100% {

@@ -18,14 +18,14 @@ class UserManagementController extends Controller
         // Fonction qui va charger la view "Gestion d'utilisateur" dans le dossier users
         public function AffichageAdminGestion()
         {
-            $users = User::where('type', '=', 'Administrateur')->get(['iduser','idabri','idconfrerie', 'age', 'sexe', 'isVerified', 'type', 'nom', 'prenom', 'avatar', 'email']);
+            $users = User::where('type', '=', 'Administrateur')->get(['iduser','idabri','idconfrerie', 'isVerified', 'type', 'nom', 'prenom', 'avatar', 'email']);
             return view('usersManagement.adminManagement')->with('users', $users);
         }
 
         // Fonction qui va charger la view "Gestion d'utilisateur" dans le dossier users
         public function AffichageUserGestion()
         {
-            $users = User::where('type', '=', 'Utilisateur')->get(['iduser', 'idabri','idconfrerie', 'age', 'sexe', 'isVerified', 'type', 'nom', 'prenom', 'avatar', 'email']);
+            $users = User::where('type', '=', 'Utilisateur')->get(['iduser', 'idabri','idconfrerie', 'isVerified', 'type', 'nom', 'prenom', 'avatar', 'email']);
             return view('usersManagement.userManagement')->with('users', $users);
         }
 

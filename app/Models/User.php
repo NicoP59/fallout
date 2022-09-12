@@ -18,6 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $fillable  = [
         "iduser",
+        "idconfrerie",
         "nom",
         "prenom",
         "email",
@@ -28,9 +29,6 @@ class User extends Authenticatable implements MustVerifyEmail
         "type",
         "isVerified",
     ];
-
-    use HasFactory, Notifiable;
-
 
     protected $hidden = [
         'mdp', 'remember_token',
@@ -44,6 +42,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'isVerified' => 'timestamp',
     ];
+
+    
+    use HasFactory, Notifiable;
 }
 
 
