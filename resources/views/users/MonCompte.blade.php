@@ -7,7 +7,7 @@
 @section('content')
     <h2>Mon profil</h2>
     <section class="verified">
-        {{ session('isVerified') == null ? 'NOT VERIFIED' : 'VERIFIED' }}
+        {{ session('isVerified') === null ? 'NOT VERIFIED' : 'VERIFIED' }}
     </section>
 
     @if ($items == null)
