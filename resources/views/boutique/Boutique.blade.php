@@ -14,16 +14,14 @@
         <body>
 
             <h1>BOUTIQUE</h1>
-
-            <a href="/create-article">Créer un article</a>
+            @if (session('iduser'))
+                <a href="/create-article">Créer un article</a>
+            @endif
 
             @foreach ($boutiques as $boutique)
                 <div class="produit">
                     <img src="{{ asset('storage/' . $boutique->img) }}" alt="Produit" class="img-produit" />
                     <p>{{ $boutique->nom }}</p>
-                    <p>{{ $boutique->description }}</p>
-                    <p>{{ $boutique->prix }}</p>
-                    <p>{{ $boutique->quantité }}</p>
                     <p><a href="/boutique/article/{{ $boutique->idproduit }}">En savoir plus sur cet article</a></p>
                     @if (session('iduser') == $boutique->iduser)
                         <div>

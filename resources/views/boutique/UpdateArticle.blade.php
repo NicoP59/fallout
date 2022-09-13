@@ -18,7 +18,7 @@
 
                     <div class="create-article">
                         <label for="description">Description</label>
-                        <input type="text" name="description" id="description" value={{ $boutique->description }} />
+                        <textarea name="description" id="description">{{ $boutique->description }}</textarea>
                     </div>
 
                     <div class="create-article">
