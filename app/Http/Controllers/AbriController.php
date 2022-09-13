@@ -15,6 +15,14 @@ class AbriController extends Controller
         return view('abris/TousLesAbris', ['abris' => $abris]);
     }
 
+    public function AffichageIDAbri($id)
+    {
+
+        $idabri = $id;
+        $abris = Abri::where('idabri', '=', $idabri)->get();
+        return view('abris.Abri')->with('abris', $abris);
+    }
+
     public function AffichageFormCreate()
     {
         return view('abris/FormAbri');
@@ -26,7 +34,6 @@ class AbriController extends Controller
         $idabri = $id;
         $abris = Abri::where('idabri', '=', $idabri)->get();
         return view('abris.FormUpdateAbri')->with('abris', $abris);
-       
     }
 
 

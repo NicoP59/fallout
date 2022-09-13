@@ -81,6 +81,8 @@ Route::get('/verif-mail/{token}', 'App\Http\Controllers\VerificationEmailControl
 
 Route::get('/abris', 'App\Http\Controllers\AbriController@AffichageAbri');
 
+Route::get('/abri/{id}', 'App\Http\Controllers\AbriController@AffichageIDAbri');
+
 Route::get('/FormCreate',  'App\Http\Controllers\AbriController@AffichageFormCreate')->middleware('isAdmin');
 
 Route::get('/FormUpdate/{id}',  'App\Http\Controllers\AbriController@AffichageFormUpdate')->middleware('isAdmin');
@@ -92,8 +94,3 @@ Route::post('/FormCreate',  'App\Http\Controllers\AbriController@Create');
 Route::post('/FormUpdate/{id}',  'App\Http\Controllers\AbriController@Update');
 
 Route::get('/delete/{id}',  'App\Http\Controllers\AbriController@delete');
-
-
-
-
-
