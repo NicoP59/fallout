@@ -16,16 +16,23 @@ class BoutiqueController extends Controller
             return view('boutique.Boutique')->with('boutiques', $boutiques);
         }
 
+        public function AffichageArticle($id) 
+        {
+            $idboutique = $id;
+            $boutiques = Boutique::where('idproduit', '=', $idboutique)->get();
+            return view('boutique.Article')->with('boutiques', $boutiques);
+        }
+
     public function AffichageModificationArticle($id) 
         {
             $idboutique = $id;
             $boutiques = Boutique::where('idproduit', '=', $idboutique)->get();
-            return view('boutique.UpdateArticleAction')->with('boutiques', $boutiques);
+            return view('boutique.UpdateArticle')->with('boutiques', $boutiques);
         }
 
     public function AffichageCreationArticle()
         {
-            return view('boutique.CreateArticleAction');
+            return view('boutique.CreateArticle');
         }
 
     // ****************************** ACTIONS ****************************** /

@@ -24,7 +24,7 @@
                     <p>{{ $boutique->description }}</p>
                     <p>{{ $boutique->prix }}</p>
                     <p>{{ $boutique->quantité }}</p>
-                    <p>{{ $boutique->iduser }}</p>
+                    <p><a href="/boutique/article/{{ $boutique->idproduit }}">En savoir plus sur cet article</a></p>
                     @if (session('iduser') == $boutique->iduser)
                         <div>
                             <a class="text-danger" href="/delete-article/{{ $boutique->idproduit }}">Supprimer</a>

@@ -9,7 +9,7 @@ nuka.addEventListener("click", changeMode);
 function changeMode() {
     if (mode == 0) {
         // NUKA MODE
-        nuka.src = "img/nukamode/nukamode.svg";
+        nuka.src = "/img/nukamode/nukamode.svg";
         root.setProperty("--display-nuka-link", "block");
 
         // HOME + TEMPLATES
@@ -36,7 +36,7 @@ function changeMode() {
         mode++;
     } else {
         // VAULT MODE
-        nuka.src = "img/nukamode/vaultmode.svg";
+        nuka.src = "/img/nukamode/vaultmode.svg";
         root.setProperty("--display-nuka-link", "none");
 
         // HOME + TEMPLATES
