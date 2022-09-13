@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Boutique extends Model
 {
+
+    protected $fillable  = [
+        "iduser",
+        "idproduit",
+        "nom",
+        "description",
+        "prix",
+        "img",
+        "quantité",
+    ];
     use HasFactory;
 }

@@ -47,6 +47,15 @@ Route::post('/modifier-avatar', 'App\Http\Controllers\UserController@UpdateAvata
 Route::get('/modifier-confrerie', 'App\Http\Controllers\UserController@AffichageConfrerie')->middleware('isLogged');
 Route::post('/modifier-confrerie', 'App\Http\Controllers\UserController@UpdateConfrerieAction')->middleware('isLogged');
 
+// BOUTIQUE
+
+Route::get('/boutique', 'App\Http\Controllers\BoutiqueController@AffichageBoutique');
+// CRUD BOUTIQUE - NE PAS OUBLIER LE MIDDLEWARE isLogged !!!!!!
+Route::get('/create-article', 'App\Http\Controllers\BoutiqueController@AffichageCreationArticle');
+Route::post('/create-article', 'App\Http\Controllers\BoutiqueController@CreateArticleAction');
+Route::get('/update-article/{id}', 'App\Http\Controllers\BoutiqueController@AffichageModificationArticle');
+Route::post('/update-article/{id}', 'App\Http\Controllers\BoutiqueController@UpdateArticleBoutique');
+Route::get('/delete-article/{id}',  'App\Http\Controllers\BoutiqueController@DeleteArticleBoutique');
 
 // GESTION UTILISATEUR
 Route::get('/gestion', 'App\Http\Controllers\UserManagementController@AffichageGestion')->middleware('isAdmin');

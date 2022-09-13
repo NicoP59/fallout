@@ -39,7 +39,7 @@
                 <a href="#" class="linky">Abris</a>
             </div>
             <div class="link">
-                <a href="#" class="linky">Boutique</a>
+                <a href="/boutique" class="linky">Boutique</a>
             </div>
             <div id="nuka-link" class="link">
                 <a href="/nuka-world" class="linky">Nuka World</a>
