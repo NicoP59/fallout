@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Abri;
+use Illuminate\Support\Facades\Storage;
 
 class AbriController extends Controller
 {
@@ -19,12 +20,15 @@ class AbriController extends Controller
         return view('abris/FormAbri');
     }
 
-    public function AffichafeFormUpdate($id)
+    public function AffichageFormUpdate($id)
     {
-        $abri = Abri::where('idabri', $id)->first()->getAttributres();
 
-        return view('abris/FormUpdateAbri', compact('abris'));
+        $idabri = $id;
+        $abris = Abri::where('idabri', '=', $idabri)->get();
+        return view('abris.FormUpdateAbri')->with('abris', $abris);
+       
     }
+
 
     //crud
 
@@ -32,62 +36,65 @@ class AbriController extends Controller
     {
 
         $request->validate([
-            'abri' => "required",
-            'location' => "required",
-            'maxplace' => "required",
-            'resume' => "required",
-            'img1' => "required",
-
-
+            'abri' => ["required"],
+            'location' => ["required"],
+            'maxplace' => ["required"],
+            'resume' => ["required"],
+            'img1' => ["required", "image", "mimes:jpg,jpeg,png,gif,svg,webp", "max:2048"],
         ]);
-// dd($request);
+
+
+
+        $path = $request->file('img1')->store('abris', 'public');
+
+
         $abri = request('abri');
         $location = request('location');
         $maxplace = request('maxplace');
         $resume = request('resume');
-        $img1 = request('img1');
 
         $NewAbri = new Abri;
         $NewAbri->abri = $abri;
         $NewAbri->location = $location;
         $NewAbri->maxplace = $maxplace;
         $NewAbri->resume = $resume;
-        $NewAbri->img1 = $img1;
+        $NewAbri->img1 = $path;
         $NewAbri->save();
 
-        return redirect('abris.ToutLesAbris');
+        return redirect('/abris');
     }
 
-    public function update( $id){
+    public function update($id)
+    {
 
         request()->validate([
-            'abri' => "required",
-            'location' => "required",
-            'maxplace' => "required",
-            'resume' => "required",
-            'img1' => "required",
+            'abri' => ["required"],
+            'location' => ["required"],
+            'maxplace' => ["required"],
+            'resume' => ["required"],
         ]);
+
 
         $abri = request('abri');
         $location = request('location');
         $maxplace = request('maxplace');
         $resume = request('resume');
-        $img1 = request('img1');
 
-        $array_update = ['abri' => $abri, 'location' => $location, 'maxplace' => $maxplace, 'resume' => $resume, 'img1' => $img1];
+        $array_update = ['abri' => $abri, 'location' => $location, 'maxplace' => $maxplace, 'resume' => $resume];
 
         $UpdateAbri = Abri::where('idabri', $id);
 
         $UpdateAbri->update($array_update);
 
-        return redirect('abris/TousLesAbris');
+        return redirect('/abris');
     }
-    
-    public function delete($id){
-            
+
+    public function delete($id)
+    {
+
         $abri = Abri::where('idabri', $id);
         $abri->delete();
 
-        return redirect('abris/TousLesAbris');
-        }
+        return redirect('/abris');
+    }
 }

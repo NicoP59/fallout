@@ -1,25 +1,36 @@
 @extends('template')
 
 @section('content')
+    @foreach ($abris as $abri)
+        <form action="/FormUpdate/{{ $abri['idabri'] }}" method="POST">
 
-    <form action="/FormUpdate/{{ $abri["idabri"]}}" method="POST">
+            @csrf
 
-        @csrf
+            <div class="mb-3">
+                <label for="abri" class="form-label">Abri</label>
+                <input type="text" class="form-control" id="abri" name="abri" value={{ $abri->abri }}>
+            </div>
 
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Abri</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="abri" placeholder="example" value="{{ $abri["abri"]}}"">
-        </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Localisation</label>
+                <input type="text" class="form-control" id="location" name="location">
+            </div>
 
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Résumé</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire">{{ $abri["resume"] }}</textarea>
-        </div>
+            <div class="mb-3">
 
-        <div>
-            <input type="submit" class="btn btn-primary">
-        </div>
+                <label for="maxplace" class="form-label">Nombre de place</label>
+                <input type="number" class="form-control" id="maxplace" name="maxplace">
+            </div>
 
-    </form>
+            <div class="mb-3">
+                <label for="resume" class="form-label">description</label>
+                <textarea class="form-control" id="resume" rows="3" name="resume"></textarea>
+            </div>
 
+            <div>
+                <input type="submit" class="btn btn-primary">
+            </div>
+
+        </form>
+    @endforeach
 @endsection
