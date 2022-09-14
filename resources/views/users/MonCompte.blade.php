@@ -61,6 +61,21 @@
         <a href='modifier-confrerie'>En savoir plus...</a>
     </article>
 
+    {{-- ABRI --}}
+
+    <article class="abri">
+        @if ($abris->isEmpty())
+            <h2>Choisissez votre abri ici</h2>
+            <a href='/abris'>Nos abris</a>
+        @else
+            <p>Mon abri</p>
+            {{-- Comme nous avons une collection nous utilisons cette méthode --}}
+            @foreach ($abris as $abri)
+                <p>Abri n°{{ $abri->abri }}</p>
+            @endforeach
+        @endif
+    </article>
+
     {{-- INFORMATIONS DU PROFIL --}}
     <form method="POST" action="/mon-profil" enctype="multipart/form-data">
         @csrf

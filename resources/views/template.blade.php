@@ -36,7 +36,7 @@
                 <a href="/" class="linky">Accueil</a>
             </div>
             <div class="link">
-                <a href="#" class="linky">Abris</a>
+                <a href="/abris" class="linky">Abris</a>
             </div>
             <div class="link">
                 <a href="#" class="linky">Boutique</a>

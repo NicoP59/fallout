@@ -19,6 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable  = [
         "iduser",
         "idconfrerie",
+        "idabri",
         "nom",
         "prenom",
         "email",
@@ -43,7 +44,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'isVerified' => 'timestamp',
     ];
 
-    
+
     use HasFactory, Notifiable;
 }
 
