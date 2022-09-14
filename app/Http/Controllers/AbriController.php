@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Abri;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class AbriController extends Controller
 {
+
+    //Fonction qui va charger la view "ToutLesAbris" dans le dossier abris
     public function AffichageAbri()
     {
 
@@ -101,6 +105,22 @@ class AbriController extends Controller
 
         $abri = Abri::where('idabri', $id);
         $abri->delete();
+
+        return redirect('/abris');
+    }
+
+
+    public function UpdateAbriUserAction($id)
+    {
+
+        User::where('iduser', session('iduser'))
+            ->update(['idabri' => request('idabri')]);
+        request()->session()->put([
+            'idabri' => request('idabri')
+        ]);
+
+        $abriID = $id;
+        DB::table('abris')->where('idabri', $abriID)->decrement('maxplace');
 
         return redirect('/abris');
     }

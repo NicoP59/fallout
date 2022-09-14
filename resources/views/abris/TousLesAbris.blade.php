@@ -21,6 +21,7 @@
                     <a class="text-primary" href="/FormUpdate/{{ $abri->idabri }}">Modifier</a>
                 </div>
             @endif
+          
         </div>
     @endforeach
 @endsection

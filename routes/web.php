@@ -75,22 +75,16 @@ Route::get('/envoie-mail-btn', 'App\Http\Controllers\VerificationEmailController
 // ROUTE DU MAIL 
 Route::get('/verif-mail/{token}', 'App\Http\Controllers\VerificationEmailController@updatemail');
 
-
-
-//Affichage et CRUD ABRI
-
+// NOS ABRIS
 Route::get('/abris', 'App\Http\Controllers\AbriController@AffichageAbri');
-
 Route::get('/abri/{id}', 'App\Http\Controllers\AbriController@AffichageIDAbri');
-
 Route::get('/FormCreate',  'App\Http\Controllers\AbriController@AffichageFormCreate')->middleware('isAdmin');
-
 Route::get('/FormUpdate/{id}',  'App\Http\Controllers\AbriController@AffichageFormUpdate')->middleware('isAdmin');
 
-//crud
+// CRUD ABRIS
+Route::post('/FormCreate',  'App\Http\Controllers\AbriController@Create')->middleware('isAdmin');
+Route::post('/FormUpdate/{id}',  'App\Http\Controllers\AbriController@Update')->middleware('isAdmin');
+Route::get('/delete/{id}',  'App\Http\Controllers\AbriController@delete')->middleware('isAdmin');
 
-Route::post('/FormCreate',  'App\Http\Controllers\AbriController@Create');
-
-Route::post('/FormUpdate/{id}',  'App\Http\Controllers\AbriController@Update');
-
-Route::get('/delete/{id}',  'App\Http\Controllers\AbriController@delete');
+// INSCRIPTION A L'ABRI
+Route::post('/UpdateUserAbri/{id}',  'App\Http\Controllers\AbriController@UpdateAbriUserAction')->middleware('isLogged');;
