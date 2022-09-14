@@ -18,6 +18,8 @@
                 <a href="/create-article">Créer un article</a>
             @endif
 
+            <p><a href="/panier">Mon panier</a></p>
+
             @foreach ($boutiques as $boutique)
                 <div class="produit">
                     <img src="{{ asset('storage/' . $boutique->img) }}" alt="Produit" class="img-produit" />

@@ -132,7 +132,7 @@ class UserController extends Controller
                 request()->session()->put([
 
                     'iduser' => $user->iduser,
-                    'idconfrerie' =>$user->idconfrerie,
+                    'idconfrerie' => $user->idconfrerie,
                     'nom' => $user->nom,
                     'prenom' => $user->prenom,
                     'email' => $user->email,
