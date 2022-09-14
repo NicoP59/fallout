@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Item;
 use App\Models\Confrerie;
+use App\Models\Abri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -39,21 +40,26 @@ class UserController extends Controller
         // Get permet d'obtenir une COLLECTION
         $confreries = Confrerie::where("confrerie", $sessionConfrerie)->get();
 
+        // Abris
+        $sessionAbri = session('idabri');
+        // Get permet d'obtenir une COLLECTION
+        $abris = Abri::where("idabri", $sessionAbri)->get();
+
         // Items
         $session = session('iduser');
         $items = Item::where('iduser', '=', $session)->get();
 
         if ($items->isEmpty()) {
-            return view('users.MonCompte')->with('items', null)->with('confreries', $confreries);
+            return view('users.MonCompte')->with('items', null)->with('confreries', $confreries)->with('abris', $abris);
         } else {
-            return view('users.MonCompte')->with('items', $items)->with('confreries', $confreries);
+            return view('users.MonCompte')->with('items', $items)->with('confreries', $confreries)->with('abris', $abris);
         }
     }
 
     // Fonction qui va charger la view "Ma Confrérie" dans le dossier users
 
-    public function AffichageConfrerie() {
-
+    public function AffichageConfrerie()
+    {
         $confreries = Confrerie::all();
         return view('users.UpdateConfrerie')->with('confreries', $confreries);
     }
@@ -104,7 +110,7 @@ class UserController extends Controller
         // Si il y a bien un utilisateur d'enregistré on renvoit à la page d'accueil
         if ($lastInsertId) {
             // je pense qu'il ne donne pas l'id à la route
-            return redirect('/envoie-mail/'. $lastInsertId);
+            return redirect('/envoie-mail/' . $lastInsertId);
         } else {
             // Si l'utilisateur est vide on renvoit à la page inscription
             return redirect('/inscription');
@@ -133,6 +139,7 @@ class UserController extends Controller
 
                     'iduser' => $user->iduser,
                     'idconfrerie' => $user->idconfrerie,
+                    'idabri' => $user->idabri,
                     'nom' => $user->nom,
                     'prenom' => $user->prenom,
                     'email' => $user->email,
@@ -206,21 +213,21 @@ class UserController extends Controller
         return redirect('/mon-profil');
     }
 
-        // Fonction pour modifier la confrérie
-        public function UpdateConfrerieAction(Request $request)
-        {
-            $request->validate([
-                'confrerie' => ['required'],
-            ]);
-    
-            $putUserConfrerie = User::where('iduser', session('iduser'));
-            $putUserConfrerie->update(['idconfrerie' => request('confrerie')]);
-            request()->session()->put([
-                'idconfrerie' => request('confrerie')
-            ]);
-    
-            return redirect('/mon-profil');
-        }
+    // Fonction pour modifier la confrérie
+    public function UpdateConfrerieAction(Request $request)
+    {
+        $request->validate([
+            'confrerie' => ['required'],
+        ]);
+
+        $putUserConfrerie = User::where('iduser', session('iduser'));
+        $putUserConfrerie->update(['idconfrerie' => request('confrerie')]);
+        request()->session()->put([
+            'idconfrerie' => request('confrerie')
+        ]);
+
+        return redirect('/mon-profil');
+    }
 
     // Fonction pour modifier le profil
     public function UpdateAction(Request $request)
