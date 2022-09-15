@@ -24,7 +24,8 @@ class AbriController extends Controller
 
         $idabri = $id;
         $abris = Abri::where('idabri', '=', $idabri)->get();
-        return view('abris.Abri')->with('abris', $abris);
+        $users = User::where('idabri', "=", $idabri)->get();
+        return view('abris.Abri')->with('abris', $abris)->with('users', $users);
     }
 
     public function AffichageFormCreate()
