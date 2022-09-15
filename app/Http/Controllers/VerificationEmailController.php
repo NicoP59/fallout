@@ -61,7 +61,7 @@ class VerificationEmailController extends Controller
             return redirect('/connexion')->with('message', 'Formulaire dead');
         }
 
-        $date = date('Y/d/m H:i:s', time());
+        $date = date('Y-m-d H:i:s', time());
 
         User::where('iduser', $spit_token[2])->update(['isVerified' => $date]);
 
