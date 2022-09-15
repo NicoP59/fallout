@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" sizes="16x10" href="img/nukamode/vaultmode.svg">
     <link rel="stylesheet" href="{{ asset('css/templates/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nukamode/nukamode.css') }}">
     <link rel="stylesheet" href="{{ asset('css/templates/header.css') }}">

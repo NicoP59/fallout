@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Boutique;
 use App\Models\Panier;
+use App\Models\Boutique;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 
@@ -42,14 +43,14 @@ class BoutiqueController extends Controller
         {
             // Affiche les produits du panier de l'utilisateur connecté
             $sessionID = session('iduser');
-            $paniers = Panier::where('iduser', $sessionID)->get();
-            // dd($paniers);
+            $paniers = Boutique::join('paniers', 'paniers.iduser', '=', $sessionID)->get(['boutiques.idproduit', 'boutiques.nom','boutiques.description', 'boutiques.prix', 'boutiques.img']);
+            
 
             // Affiche les informations de chaque produit du panier
-            $produits = Boutique::join('paniers', 'boutiques.idproduit', "=", "paniers.idpanier")->get();
-            dd($produits);
+            // $produits = Boutique::join('paniers', 'paniers.iduser', $sessionID)->get();
+            // dd($produits);
 
-            return view('boutique.Panier')->with('paniers', $paniers)->with('boutiques', $produits);;
+            return view('boutique.Panier')->with('paniers', $paniers);
         }
 
     // ****************************** ACTIONS ****************************** /

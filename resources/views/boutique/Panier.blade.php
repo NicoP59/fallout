@@ -14,7 +14,9 @@
         <body>
             <h1>MON PANIER</h1>
             <article class="produits">
-                @if (Session::has('idproduit'))
+                @if ($paniers->isEmpty())
+                    <h2>Aucun produit</h2>
+                @else
                     @foreach ($paniers as $panier)
                         <section class="produit">
                             <img src="{{ asset('storage/' . $panier->img) }}" alt="Produit" class="img-produit" />
@@ -28,10 +30,7 @@
                             </div> --}}
                         </section>
                     @endforeach
-                @else
-                    <h1>Aucun produit</h1>
                 @endif
-
             </article>
 
         </body>
