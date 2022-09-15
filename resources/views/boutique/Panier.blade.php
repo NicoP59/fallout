@@ -16,7 +16,7 @@
             <article class="produits">
                 @if ($paniers->isEmpty())
                     <h2>Aucun produit</h2>
-                @else
+                @elseif ($paniers)
                     @foreach ($paniers as $panier)
                         <section class="produit">
                             <img src="{{ asset('storage/' . $panier->img) }}" alt="Produit" class="img-produit" />
@@ -30,6 +30,7 @@
                             </div> --}}
                         </section>
                     @endforeach
+                @else
                 @endif
             </article>
 

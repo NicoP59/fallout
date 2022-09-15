@@ -43,13 +43,7 @@ class BoutiqueController extends Controller
         {
             // Affiche les produits du panier de l'utilisateur connecté
             $sessionID = session('iduser');
-            $paniers = Boutique::join('paniers', 'paniers.iduser', '=', $sessionID)->get(['boutiques.idproduit', 'boutiques.nom','boutiques.description', 'boutiques.prix', 'boutiques.img']);
-            
-
-            // Affiche les informations de chaque produit du panier
-            // $produits = Boutique::join('paniers', 'paniers.iduser', $sessionID)->get();
-            // dd($produits);
-
+            $paniers = Boutique::join('paniers', 'paniers.idproduit', '=', 'boutiques.idproduit')->where('paniers.iduser', '=', $sessionID)->get(['boutiques.idproduit', 'boutiques.nom','boutiques.description', 'boutiques.prix', 'boutiques.img']);
             return view('boutique.Panier')->with('paniers', $paniers);
         }
 

@@ -17,5 +17,9 @@ class Boutique extends Model
         "quantité",
     ];
 
+    // public function paniers() {
+    //     return $this->hasMany(Panier::class);
+    // }
+    
     use HasFactory;
 }
