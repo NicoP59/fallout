@@ -31,11 +31,13 @@
                                 <input type="submit" name="type" id="change-to-admin" value="Utilisateur">
                             </div>
                         </form>
-                        <a class="text-danger" href="/delete-user/{{ Session::get('iduser') }}"
-                            onclick="checkdelete()">Supprimer</a>
+                        <a class="text-danger" href="/delete-admin/{{ $user->iduser }}"
+                            onclick="checkDeleteAdmin()">Supprimer</a>
                     </div>
                 </section>
             @endforeach
         @endif
     </article>
+
+    <script src="/js/delete-confirmation/delete-admin.js"></script>
 @endsection

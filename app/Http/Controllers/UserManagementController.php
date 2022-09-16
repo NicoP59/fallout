@@ -64,12 +64,21 @@ class UserManagementController extends Controller
 
         return redirect('/gestion-utilisateurs');
     }
-
-    public function deleteAdminUser($iduser)
+//Fonction qui va supprimer les utilisateur
+    public function deleteUser($iduser)
     {
         $user = User::where('iduser', $iduser);
         $user->delete();
 
         return redirect('gestion-utilisateurs');
     }
+//Fonction qui va supprimer les administrateur
+    public function deleteAdmin($iduser)
+    {
+        $user = User::where('iduser', $iduser);
+        $user->delete();
+
+        return redirect('gestion-utilisateurs');
+    }
+
 }
