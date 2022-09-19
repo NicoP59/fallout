@@ -109,9 +109,16 @@
         <div class="form-group">
             <input type="submit" value="Modifier mon profil">
         </div>
+
     </form>
+
+    <a class="text-danger" href="/delete-compte/{{ Session::get('iduser') }}" onclick="checkdelete()">Supprimer</a>
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="/js/lunchbox.js"></script>
     <script src="/js/items.js"></script>
+    <script src="/js/delete-confirmation/delete-account.js"></script>
+
 @endsection

@@ -166,11 +166,14 @@ class UserController extends Controller
         if (session()->has('iduser')) {
             // On détruit les variables de session suivantes
             session()->pull("iduser");
+            session()->pull("idconfrerie");
+            session()->pull("idabri");
             session()->pull("nom");
             session()->pull("prenom");
             session()->pull("email");
             session()->pull("avatar");
             session()->pull("type");
+            session()->pull("isVerified");
         }
         // Et on redirige sur la page d'accueil
         return redirect('/');
@@ -270,5 +273,27 @@ class UserController extends Controller
         }
 
         return redirect('/mon-profil');
+    }
+
+    public function destroy($iduser)
+    {
+        $user = User::where('iduser', $iduser);
+        $user->delete();
+
+        // Si la session comprend un id
+        if (session()->has('iduser')) {
+            // On détruit les variables de session suivantes
+            session()->forget("iduser");
+            session()->forget("idconfrerie");
+            session()->forget("idabri");
+            session()->forget("nom");
+            session()->forget("prenom");
+            session()->forget("email");
+            session()->forget("avatar");
+            session()->forget("type");
+            session()->forget("isVerified");
+        }
+        // Et on redirige sur la page d'accueil
+        return redirect('/')->with('success', 'compte Supprime avec succès');
     }
 }

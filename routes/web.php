@@ -46,6 +46,7 @@ Route::get('/modifier-avatar', 'App\Http\Controllers\UserController@AffichageAva
 Route::post('/modifier-avatar', 'App\Http\Controllers\UserController@UpdateAvatarAction')->middleware('isLogged');
 Route::get('/modifier-confrerie', 'App\Http\Controllers\UserController@AffichageConfrerie')->middleware('isLogged');
 Route::post('/modifier-confrerie', 'App\Http\Controllers\UserController@UpdateConfrerieAction')->middleware('isLogged');
+Route::get('/delete-compte/{iduser}',  'App\Http\Controllers\UserController@destroy')->middleware('isLogged');
 
 
 // GESTION UTILISATEUR
@@ -54,6 +55,8 @@ Route::get('/gestion-administrateurs', 'App\Http\Controllers\UserManagementContr
 Route::get('/gestion-utilisateurs', 'App\Http\Controllers\UserManagementController@AffichageUserGestion')->middleware('isAdmin');
 Route::post('/gestion-utilisateurs/{iduser}', 'App\Http\Controllers\UserManagementController@UpdateToAdminAction')->middleware('isAdmin');
 Route::post('/gestion-administrateurs/{iduser}', 'App\Http\Controllers\UserManagementController@UpdateToUserAction')->middleware('isAdmin');
+Route::get('/delete-user/{iduser}', 'App\Http\Controllers\UserManagementController@deleteUser')->middleware('isAdmin');
+Route::get('/delete-admin/{iduser}', 'App\Http\Controllers\UserManagementController@deleteAdmin')->middleware('isAdmin');
 
 // MAIL
 Route::get('/message', "App\Http\Controllers\MessageController@formMessageGoogle");
