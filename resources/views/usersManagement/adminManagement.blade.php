@@ -32,12 +32,12 @@
                             </div>
                         </form>
                         <a class="text-danger" href="/delete-admin/{{ $user->iduser }}"
-                            onclick="checkDeleteAdmin()">Supprimer</a>
+                            onclick="return confirm('Toutes ses données seront perdues. Êtes vous sûr(e) de vouloir supprimer ce compte ? CONFIRMER ?')">Supprimer</a>
                     </div>
                 </section>
             @endforeach
         @endif
     </article>
 
-    <script src="/js/delete-confirmation/delete-admin.js"></script>
+
 @endsection

@@ -32,7 +32,7 @@
                             </div>
                         </form>
                         <a class="text-danger" href="/delete-user/{{ $user->iduser }}"
-                            onclick="checkDeleteUser()">Supprimer</a>
+                            onclick="return confirm('Toutes ses données seront perdues. Êtes vous sûr(e) de vouloir supprimer ce compte ? CONFIRMER ?')">Supprimer</a>
                     </div>
                 </section>
             @endforeach
@@ -40,5 +40,5 @@
 
     </article>
 
-    <script src="/js/delete-confirmation/delete-user.js"></script>
+  
 @endsection
