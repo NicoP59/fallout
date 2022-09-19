@@ -10,26 +10,35 @@
 
 @section('content')
     <article>
-        @foreach ($users as $user)
-            <section id="div-carte-user">
-                <img src="{{ $user->avatar }}" class="avatar" alt="">
-                <div>
-                    <p>{{ $user->nom }}</p>
-                    <p>{{ $user->prenom }}</p>
-                    <p>{{ $user->email }}</p>
-                    <p>{{ $user->type }}</p>
-                    <p>{{ $user->mdp }}</p>
-                </div>
-                <div>
-                    <form method="POST" action="/gestion-utilisateurs/{{ $user->iduser }}">
-                        @csrf
-                        <div>
-                            <label for="type">Changer en </label>
-                            <input type="submit" name="type" id="change-to-admin" value="Administrateur">
-                        </div>
-                    </form>
-                </div>
-            </section>
-        @endforeach
+        @if ($users->isEmpty())
+            <p>Aucun utilisateur</p>
+        @else
+            @foreach ($users as $user)
+                <section id="div-carte-user">
+                    <img src="{{ $user->avatar }}" class="avatar" alt="">
+                    <div>
+                        <p>{{ $user->nom }}</p>
+                        <p>{{ $user->prenom }}</p>
+                        <p>{{ $user->email }}</p>
+                        <p>{{ $user->type }}</p>
+                        <p>{{ $user->mdp }}</p>
+                    </div>
+                    <div>
+                        <form method="POST" action="/gestion-utilisateurs/{{ $user->iduser }}">
+                            @csrf
+                            <div>
+                                <label for="type">Changer en </label>
+                                <input type="submit" name="type" id="change-to-admin" value="Administrateur">
+                            </div>
+                        </form>
+                        <a class="text-danger" href="/delete-user/{{ $user->iduser }}"
+                            onclick="checkDeleteUser()">Supprimer</a>
+                    </div>
+                </section>
+            @endforeach
+        @endif
+
     </article>
+
+    <script src="/js/delete-confirmation/delete-user.js"></script>
 @endsection
