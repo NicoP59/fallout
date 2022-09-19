@@ -19,17 +19,25 @@
                 <p>{{ $boutique->prix }}</p>
                 <p>{{ $boutique->description }}</p>
                 <p>{{ $boutique->quantité }}</p>
-                <form action="/panier/{{ $boutique->idproduit }}" method="POST">
-                    @csrf
-                    <div>
-                        <input type="number" name="quantity" value="1" min="1" max={{ $boutique->quantité }}
-                            placeholder="Quantité ?">
-                    </div>
-                    <div>
-                        <input type="hidden" name="quantité" value={{ $boutique->idproduit }}>
-                        <input type="submit" value="Ajouter au panier">
-                    </div>
-                </form>
+                <p>{{ $boutique->iduser }}</p>
+                @if ($boutique->quantité > 0)
+                    @if ($boutique->iduser != session('iduser'))
+                        <form action="/panier/{{ $boutique->idproduit }}" method="POST">
+                            @csrf
+                            <div>
+                                <input type="number" name="pquantité" value="1" min="1"
+                                    max={{ $boutique->quantité }} placeholder="Quantité ?">
+                            </div>
+                            <div>
+                                <input type="submit" value="Ajouter au panier">
+                            </div>
+                        </form>
+                    @else
+                        <p>C'est votre article</p>
+                    @endif
+                @else
+                    <p>SOLD OUT</p>
+                @endif
             @endforeach
 
         </body>

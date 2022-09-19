@@ -16,10 +16,6 @@ class Boutique extends Model
         "img",
         "quantité",
     ];
-
-    // public function paniers() {
-    //     return $this->hasMany(Panier::class);
-    // }
     
     use HasFactory;
 }

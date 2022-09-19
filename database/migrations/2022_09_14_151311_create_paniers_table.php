@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('idpanier');
             $table->foreignId('iduser')->constrained('users');
             $table->foreignId('idproduit')->constrained('boutiques');
-            $table->string('quantité');
+            $table->string('pquantité');
             $table->timestamps();
         });
     }

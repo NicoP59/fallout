@@ -48,11 +48,11 @@ Route::get('/delete-compte/{iduser}',  'App\Http\Controllers\UserController@dest
 // BOUTIQUE
 Route::get('/boutique', 'App\Http\Controllers\BoutiqueController@AffichageBoutique');
 Route::get('/boutique/article/{id}', 'App\Http\Controllers\BoutiqueController@AffichageArticle');
-// PANIER -> QUE SI CONNECTÉ
+// PANIER
 Route::get('/panier', 'App\Http\Controllers\BoutiqueController@AffichagePanier');
-Route::post('/panier/{idproduit}', 'App\Http\Controllers\BoutiqueController@AddtoCart');
-Route::post('/update-article-panier/{idproduit}', 'App\Http\Controllers\BoutiqueController@UpdateCart');
-Route::get('/delete-article-panier/{idproduit}', 'App\Http\Controllers\BoutiqueController@DeleteFromCart');
+Route::post('/panier/{idproduit}', 'App\Http\Controllers\BoutiqueController@AddtoCart')->middleware('isLogged');
+Route::post('/update-article-panier/{idpanier}', 'App\Http\Controllers\BoutiqueController@UpdateCart')->middleware('isLogged');
+Route::get('/delete-article-panier/{idpanier}', 'App\Http\Controllers\BoutiqueController@DeleteFromCart')->middleware('isLogged');
 // CRUD BOUTIQUE
 Route::get('/create-article', 'App\Http\Controllers\BoutiqueController@AffichageCreationArticle')->middleware('isLogged');
 Route::post('/create-article', 'App\Http\Controllers\BoutiqueController@CreateArticleAction')->middleware('isLogged');

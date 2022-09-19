@@ -18,14 +18,14 @@ class BoutiqueController extends Controller
             return view('boutique.Boutique')->with('boutiques', $boutiques);
         }
 
-    public function AffichageArticle($id) 
+    public function AffichageArticle($id)
         {
             $idboutique = $id;
             $boutiques = Boutique::where('idproduit', '=', $idboutique)->get();
             return view('boutique.Article')->with('boutiques', $boutiques);
         }
 
-    public function AffichageModificationArticle($id) 
+    public function AffichageModificationArticle($id)
         {
             $idboutique = $id;
             $boutiques = Boutique::where('idproduit', '=', $idboutique)->get();
@@ -43,7 +43,8 @@ class BoutiqueController extends Controller
         {
             // Affiche les produits du panier de l'utilisateur connecté
             $sessionID = session('iduser');
-            $paniers = Boutique::join('paniers', 'paniers.idproduit', '=', 'boutiques.idproduit')->where('paniers.iduser', '=', $sessionID)->get(['boutiques.idproduit', 'boutiques.nom','boutiques.description', 'boutiques.prix', 'boutiques.img']);
+            $paniers = Boutique::join('paniers', 'paniers.idproduit', '=', 'boutiques.idproduit')->where('paniers.iduser', '=', $sessionID)->get(['boutiques.idproduit', 'boutiques.quantité', 'boutiques.nom','boutiques.description', 'boutiques.prix', 'boutiques.img', 'paniers.idpanier', 'paniers.pquantité']);
+            
             return view('boutique.Panier')->with('paniers', $paniers);
         }
 
@@ -87,21 +88,21 @@ class BoutiqueController extends Controller
                 'prix' => ['required'],
                 'quantité' => ['required'],
             ]);
-    
+
             $nom = request('nom');
             $description = request('description');
             $prix = request('prix');
             $quantité = request('quantité');
-    
+
             $array_update = ['nom' => $nom, 'description' => $description, 'prix' => $prix, 'quantité' => $quantité];
-    
+
             $UpdateBoutique = Boutique::where('idproduit', $id);
-    
+
             $UpdateBoutique->update($array_update);
-    
+
             return redirect('/boutique');
         }
-    
+
 
     // Fonction pour supprimer un article
 
@@ -116,13 +117,28 @@ class BoutiqueController extends Controller
     // PANIER
     // Fonction pour ajouter un article au panier
 
-    public function AddtoCart() 
-        {  
-            if(!session('iduser')) {
-                return redirect('/connexion');
-            } else {
-                return redirect('/');
-            }
+    public function AddtoCart(Request $request)
+        {
+            $request->validate([
+                'pquantité' => ['required'],
+            ]);
+
+            $iduser = Session::get('iduser');
+            $idproduit = request()->idproduit;
+
+            // Soustraire les quantités disponibles
+            $getquantité = Boutique::where('idproduit', $idproduit)->get()->implode('quantité');
+            $quantité = request()->pquantité;
+            DB::table('boutiques')->where('idproduit', $idproduit)->update(['quantité' => $getquantité - $quantité]);
+
+            // Ajoute le produit au panier
+            $panier = new Panier();
+            $panier->iduser = $iduser;
+            $panier->idproduit = $idproduit;
+            $panier->pquantité = request('pquantité');
+            $panier->save();
+
+            return redirect('/panier');
         }
 
     // Fonction pour mettre à jour un produit dans le panier
@@ -134,9 +150,22 @@ class BoutiqueController extends Controller
 
     // Fonction pour supprimer un produit du panier
 
-    public function DeleteFromCart()
+    public function DeleteFromCart($idpanier)
         {
+            // ID DU PANIER
+            $panier = Panier::where('idpanier', $idpanier);
+            // ID DU PRODUIT DE LA BOUTIQUE
+            $produit = Panier::where('idpanier', $idpanier)->get(['idproduit'])->implode('idproduit');
 
+            // Rajouter les quantités disponibles
+            $quantitéBoutique = Boutique::where('idproduit', $produit)->get(['quantité'])->implode('quantité');
+            $quantitéPanier = Panier::where('idproduit', $produit)->get()->implode('pquantité');
+            DB::table('boutiques')->where('idproduit', $produit)->update(['quantité' => $quantitéBoutique + $quantitéPanier]);
+
+            // Supprime le produit du panier
+            $panier->delete();
+
+            return redirect('/panier');
         }
 }
 

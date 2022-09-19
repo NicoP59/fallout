@@ -15,9 +15,5 @@ class Panier extends Model
 
     ];
 
-    // public function add() {
-    //     return $this->belongsTo(Boutique::class);
-    // }
-
     use HasFactory;
 }
