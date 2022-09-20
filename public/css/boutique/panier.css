@@ -25,7 +25,8 @@
 
 /* PANIER VIDE  */
 
-.connect-before {
+.connect-before,
+.no-produit {
     border: var(--border-presentation);
     border-radius: 10px;
     padding: 50px;
@@ -37,6 +38,11 @@
     color: var(--color-delivery);
     font-size: 1rem;
     letter-spacing: 0.2em;
+}
+
+.produit-vide {
+    font-weight: bold;
+    color: var(--color-delivery);
 }
 
 .icons {
@@ -154,11 +160,12 @@
 #top-btn {
     animation: Quantum 2s ease 0s infinite normal forwards;
     cursor: pointer;
-    text-align: center;
     position: fixed;
     bottom: 0;
+    left: 0;
     padding: 20px;
     width: 5em;
+    box-sizing: unset;
 }
 
 /* KEYFRAMES */
@@ -244,7 +251,8 @@
 /* RESPONSIVE */
 
 @media screen and (max-width: 885px) {
-    .connect-before {
+    .connect-before,
+    .no-produit {
         width: 80%;
     }
 
@@ -260,7 +268,8 @@
 }
 
 @media screen and (max-width: 350px) {
-    .connect-before {
+    .connect-before,
+    .no-produit {
         width: 95%;
     }
 }

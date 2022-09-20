@@ -64,7 +64,7 @@
                 @else
                     {{-- Sinon sold out --}}
                     <div class="sold-out">
-                        <p class="sold">SOLD OUT</p>
+                        <p class="sold">ARTICLE ÉPUISÉ</p>
                     </div>
                 @endif
             @endforeach

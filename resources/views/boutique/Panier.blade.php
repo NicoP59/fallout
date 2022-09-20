@@ -15,21 +15,23 @@
             <p class="retour"><a href="/boutique" class="retour-a"><i class="bi bi-arrow-return-left"></i></a></p>
 
             <h1 class="panier-titre">MON PANIER</h1>
-            <article class="produits">
-                @if (!session('iduser'))
-                    <div class="connect-before">
-                        <div class="icons">
-                            <i class="bi bi-person-x"></i>
-                        </div>
-                        <p>Tu dois te connecter !</p>
-                        <div class="co">
-                            <a href="/connexion" class="co">Se connecter</a>
-                        </div>
+            @if (!session('iduser'))
+                <div class="connect-before">
+                    <div class="icons">
+                        <i class="bi bi-person-x"></i>
                     </div>
-                @else
-                    @if ($paniers->isEmpty())
-                        <h2>Aucun produit</h2>
-                    @elseif ($paniers)
+                    <p>Tu dois te connecter !</p>
+                    <div class="co">
+                        <a href="/connexion" class="co">Se connecter</a>
+                    </div>
+                </div>
+            @else
+                @if ($paniers->isEmpty())
+                    <div class="no-produit">
+                        <p class="produit-vide">Votre panier est vide...</p>
+                    </div>
+                @elseif ($paniers)
+                    <article class="produits">
                         @foreach ($paniers as $panier)
                             <section class="produit">
                                 <span class="icons"><i class="bi bi-tag"></i></span>
@@ -47,31 +49,33 @@
                                             class="delete"><i class="bi bi-trash3"></i></a>
                                     </div>
                                 </div>
-
                             </section>
                         @endforeach
-            </article>
-            <article class="commande-confirmation">
-                @php
-                    $totalPrix = 0;
-                @endphp
-                @foreach ($paniers as $panier)
-                    @php
-                        $totalPrix += $panier['prix'] * $panier['pquantité'];
-                    @endphp
-                @endforeach
-                <p class="total-p">Total de votre commande : <span class="prix">{{ $totalPrix }} capsules</span></p>
-                <div class="a-confirmation-div">
-                    <a href="/delete-commande" class="a-confirmation">Confirmer votre commande</a>
-                    <div class="caddy">
-                        <i class="bi bi-cart4"></i>
-                    </div>
+                    </article>
 
-                </div>
-            </article>
-        @else
-            <p>Une erreur est survenue...</p>
-            @endif
+                    <article class="commande-confirmation">
+                        @php
+                            $totalPrix = 0;
+                        @endphp
+                        @foreach ($paniers as $panier)
+                            @php
+                                $totalPrix += $panier['prix'] * $panier['pquantité'];
+                            @endphp
+                        @endforeach
+                        <p class="total-p">Total de votre commande : <span class="prix">{{ $totalPrix }}
+                                capsules</span></p>
+                        <div class="a-confirmation-div">
+                            <a href="/delete-commande" class="a-confirmation">Confirmer votre commande</a>
+                            <div class="caddy">
+                                <i class="bi bi-cart4"></i>
+                            </div>
+                        </div>
+                    </article>
+                @else
+                    <div class="no-produit">
+                        <p class="produit-vide">Une erreur est survenue...</p>
+                    </div>
+                @endif
             @endif
 
             <div id="top-btn-section">
