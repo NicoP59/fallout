@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/home/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/chargement.css') }}">
     <title>Vault Tec Corporation</title>
 </head>
 
@@ -12,6 +13,11 @@
     <main>
 
         <body>
+            {{-- Page de chargement --}}
+            <div class="preloader">
+                <img src="{{ asset('img/templates/logo.png') }}" alt="fALLOUT" class="bigger-logo">
+                <span class="loader"></span>
+              </div>
             {{-- Si la session contient un id de session --}}
             @if (Session::has('iduser'))
                 {{-- On affiche ce message de bienvenue avec le prénom de session --}}
@@ -127,4 +133,5 @@
     </main>
 @endsection
 
+<script src="js/chargementpage.js"></script>
 <script src="/js/typewritters/typewritter.js"></script>
