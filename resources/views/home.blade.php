@@ -97,32 +97,32 @@
                     <div class="gallery">
                         <div class="special-div">
                             <p class="special-titre">FORCE</p>
-                            <img src="{{ asset('img/home/force.jpg') }}" alt="SPECIAL Force" class="special-img">
+                           <a href="{{ asset('videos/1FORCE.mp4') }}" target="_blank"> <img src="{{ asset('img/home/force.jpg') }}" alt="SPECIAL Force" class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">PERCEPTION</p>
-                            <img src="{{ asset('img/home/perception.jpg') }}" alt="SPECIAL Perception" class="special-img">
+                           <a href="{{ asset('videos/2PERCEPTION.mp4') }}" target="_blank"> <img src="{{ asset('img/home/perception.jpg') }}" alt="SPECIAL Perception" class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">ENDURANCE</p>
-                            <img src="{{ asset('img/home/endurance.jpg') }}" alt="SPECIAL Endurance" class="special-img">
+                            <a href="{{ asset('videos/3ENDURANCE.mp4') }}" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/home/endurance.jpg') }}" alt="SPECIAL Endurance" class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">CHARISME</p>
-                            <img src="{{ asset('img/home/charisme.png') }}" alt="SPECIAL Charisme" class="special-img">
+                            <a href="{{ asset('videos/4CHARISME.mp4') }}" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/home/charisme.png') }}" alt="SPECIAL Charisme" class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">INTELLIGENCE</p>
-                            <img src="{{ asset('img/home/intelligence.jpg') }}" alt="SPECIAL Intelligence"
-                                class="special-img">
+                           <a href="{{ asset('videos/5INTELLIGENCE.mp4') }}" target="_blank" rel="noopener noreferrer"> <img src="{{ asset('img/home/intelligence.jpg') }}" alt="SPECIAL Intelligence"
+                                class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">AGILITÉ</p>
-                            <img src="{{ asset('img/home/agilité.jpg') }}" alt="SPECIAL Agilité" class="special-img">
+                           <a href="{{ asset('videos/6AGILITE.mp4') }}" target="_blank" rel="noopener noreferrer"> <img src="{{ asset('img/home/agilité.jpg') }}" alt="SPECIAL Agilité" class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">CHANCE</p>
-                            <img src="{{ asset('img/home/chance.jpg') }}" alt="SPECIAL Chance" class="special-img">
+                           <a href="{{ asset('videos/7CHANCE.mp4') }}" target="_blank" rel="noopener noreferrer"> <img src="{{ asset('img/home/chance.jpg') }}" alt="SPECIAL Chance" class="special-img"></a>
                         </div>
                     </div>
                 </section>
