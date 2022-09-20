@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Panier;
 use App\Models\Boutique;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -15,14 +16,18 @@ class BoutiqueController extends Controller
     public function AffichageBoutique()
         {
             $boutiques = Boutique::all();
-            return view('boutique.Boutique')->with('boutiques', $boutiques);
+            $nbr = Panier::query()
+            ->where('iduser', session('iduser'))
+            ->count();
+            return view('boutique.Boutique')->with('boutiques', $boutiques)->with('nbr', $nbr);
         }
 
     public function AffichageArticle($id)
         {
             $idboutique = $id;
+            $users = User::join('boutiques', 'boutiques.iduser', '=', 'users.iduser')->where('boutiques.idproduit', '=', $idboutique)->get(['users.iduser', 'users.nom', 'users.prenom', 'users.email']);
             $boutiques = Boutique::where('idproduit', '=', $idboutique)->get();
-            return view('boutique.Article')->with('boutiques', $boutiques);
+            return view('boutique.Article')->with('boutiques', $boutiques)->with('users', $users);
         }
 
     public function AffichageModificationArticle($id)
@@ -44,9 +49,14 @@ class BoutiqueController extends Controller
             // Affiche les produits du panier de l'utilisateur connecté
             $sessionID = session('iduser');
             $paniers = Boutique::join('paniers', 'paniers.idproduit', '=', 'boutiques.idproduit')->where('paniers.iduser', '=', $sessionID)->get(['boutiques.idproduit', 'boutiques.quantité', 'boutiques.nom','boutiques.description', 'boutiques.prix', 'boutiques.img', 'paniers.idpanier', 'paniers.pquantité']);
-            
+
             return view('boutique.Panier')->with('paniers', $paniers);
         }
+
+    public function ConfirmationCommande() {
+            $users = User::where('iduser', session('iduser'))->get(['nom', 'prenom']);
+            return view('boutique.Confirmation')->with('users', $users);
+    }
 
     // ****************************** ACTIONS ****************************** /
 
@@ -141,13 +151,6 @@ class BoutiqueController extends Controller
             return redirect('/panier');
         }
 
-    // Fonction pour mettre à jour un produit dans le panier
-
-    public function UpdateCart()
-        {
-
-        }
-
     // Fonction pour supprimer un produit du panier
 
     public function DeleteFromCart($idpanier)
@@ -166,6 +169,16 @@ class BoutiqueController extends Controller
             $panier->delete();
 
             return redirect('/panier');
+        }
+
+
+    // Fonction pour confirmer la commande - supprime le panier
+
+    public function DeleteAllFromCart() 
+        {
+            $delete = Panier::where('iduser', session('iduser'));
+            $delete->delete();
+            return redirect('/confirmation-commande');
         }
 }
 

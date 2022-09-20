@@ -35,28 +35,26 @@
                                     <a class="text-danger"
                                         href="/delete-article-panier/{{ $panier->idpanier }}">Supprimer</a>
                                 </div>
-                                <form action="/update-article-panier/{{ $panier->idpanier }}" method="POST">
-                                    @csrf
-                                    <div>
-                                        <input type="number" name="pquantité" value="0" min="1"
-                                            max={{ $panier->quantité }} placeholder="Quantité ?">
-                                    </div>
-                                    <div>
-                                        <input type="submit" value="Mettre à jour">
-                                    </div>
-                                </form>
                             </section>
                         @endforeach
-                    @else
-                        <p>Une erreur est survenue...</p>
-                    @endif
-                @endif
             </article>
-
             <article>
-                <p>TOTAL : {{ $panier = $panier->prix * $panier->pquantité }} </p>
-                <button>Passer la commande</button>
+                @php
+                    $totalPrix = 0;
+                @endphp
+                @foreach ($paniers as $panier)
+                    @php
+                        $totalPrix += $panier['prix'] * $panier['pquantité'];
+                    @endphp
+                @endforeach
+                <p>TOTAL : {{ $totalPrix }}</p>
+                <a href="/delete-commande">Passer la commande</a>
             </article>
+        @else
+            <p>Une erreur est survenue...</p>
+            @endif
+            @endif
+
 
         </body>
 

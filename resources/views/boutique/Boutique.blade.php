@@ -17,8 +17,16 @@
             @if (session('iduser'))
                 <a href="/create-article">Créer un article</a>
             @endif
-
-            <p><a href="/panier">Mon panier</a></p>
+            <div class="icon-wrapper">
+                <a href="/panier">
+                    <figure>
+                        <img src="/img/icons/bell_icon.svg" alt="" class="bell-icon">
+                        <figcaption>
+                            {{ $nbr }}
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
 
             @foreach ($boutiques as $boutique)
                 <div class="produit">

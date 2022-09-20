@@ -51,8 +51,9 @@ Route::get('/boutique/article/{id}', 'App\Http\Controllers\BoutiqueController@Af
 // PANIER
 Route::get('/panier', 'App\Http\Controllers\BoutiqueController@AffichagePanier');
 Route::post('/panier/{idproduit}', 'App\Http\Controllers\BoutiqueController@AddtoCart')->middleware('isLogged');
-Route::post('/update-article-panier/{idpanier}', 'App\Http\Controllers\BoutiqueController@UpdateCart')->middleware('isLogged');
 Route::get('/delete-article-panier/{idpanier}', 'App\Http\Controllers\BoutiqueController@DeleteFromCart')->middleware('isLogged');
+Route::get('/confirmation-commande', 'App\Http\Controllers\BoutiqueController@ConfirmationCommande')->middleware('isLogged');
+Route::get('/delete-commande', 'App\Http\Controllers\BoutiqueController@DeleteAllFromCart')->middleware('isLogged');
 // CRUD BOUTIQUE
 Route::get('/create-article', 'App\Http\Controllers\BoutiqueController@AffichageCreationArticle')->middleware('isLogged');
 Route::post('/create-article', 'App\Http\Controllers\BoutiqueController@CreateArticleAction')->middleware('isLogged');
