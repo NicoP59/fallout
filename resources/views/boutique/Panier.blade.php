@@ -12,33 +12,46 @@
     <main>
 
         <body>
-            <h1>MON PANIER</h1>
+            <p class="retour"><a href="/boutique" class="retour-a"><i class="bi bi-arrow-return-left"></i></a></p>
+
+            <h1 class="panier-titre">MON PANIER</h1>
             <article class="produits">
                 @if (!session('iduser'))
-                    <p>Tu dois te connecter !</p>
-                    <a href="/connexion">Se connecter</a>
+                    <div class="connect-before">
+                        <div class="icons">
+                            <i class="bi bi-person-x"></i>
+                        </div>
+                        <p>Tu dois te connecter !</p>
+                        <div class="co">
+                            <a href="/connexion" class="co">Se connecter</a>
+                        </div>
+                    </div>
                 @else
                     @if ($paniers->isEmpty())
                         <h2>Aucun produit</h2>
                     @elseif ($paniers)
                         @foreach ($paniers as $panier)
                             <section class="produit">
-                                <img src="{{ asset('storage/' . $panier->img) }}" alt="Produit" class="img-produit" />
-                                <p>ID PRODUIT : {{ $panier->idproduit }}</p>
-                                <p>NOM DU PRODUIT : {{ $panier->nom }}</p>
-                                <p>PRIX DU PRODUIT : {{ $panier->prix }}</p>
-                                {{-- TABLE PANIERS --}}
-                                <p>QUANTITÉ CHOISIE : {{ $panier->pquantité }}</p>
-                                <p>QUANTITÉ RESTANTE DANS LA BOUTIQUE : {{ $panier->quantité }}</p>
-                                <p>TOTAL DES ARTICLES : {{ $panier->prix * $panier->pquantité }}</p>
-                                <div>
-                                    <a class="text-danger"
-                                        href="/delete-article-panier/{{ $panier->idpanier }}">Supprimer</a>
+                                <span class="icons"><i class="bi bi-tag"></i></span>
+                                <div class="img-produit-div">
+                                    <img src="{{ asset('storage/' . $panier->img) }}" alt="Produit" class="img-produit" />
                                 </div>
+                                <div class="info-article">
+                                    <p class="p-title-produit">{{ $panier->pquantité }} {{ $panier->nom }}</p>
+                                    <p class="p-produit"><span class="bold">Prix :</span>
+                                        {{ $panier->prix }} capsules</p>
+                                    <p class="p-produit"><span class="bold">Total :</span>
+                                        {{ $panier->prix * $panier->pquantité }} capsules</p>
+                                    <div class="delete-div">
+                                        <a class="text-danger" href="/delete-article-panier/{{ $panier->idpanier }}"
+                                            class="delete"><i class="bi bi-trash3"></i></a>
+                                    </div>
+                                </div>
+
                             </section>
                         @endforeach
             </article>
-            <article>
+            <article class="commande-confirmation">
                 @php
                     $totalPrix = 0;
                 @endphp
@@ -47,14 +60,23 @@
                         $totalPrix += $panier['prix'] * $panier['pquantité'];
                     @endphp
                 @endforeach
-                <p>TOTAL : {{ $totalPrix }}</p>
-                <a href="/delete-commande">Passer la commande</a>
+                <p class="total-p">Total de votre commande : <span class="prix">{{ $totalPrix }} capsules</span></p>
+                <div class="a-confirmation-div">
+                    <a href="/delete-commande" class="a-confirmation">Confirmer votre commande</a>
+                    <div class="caddy">
+                        <i class="bi bi-cart4"></i>
+                    </div>
+
+                </div>
             </article>
         @else
             <p>Une erreur est survenue...</p>
             @endif
             @endif
 
+            <div id="top-btn-section">
+                <img src="img/icons/quantum.webp" alt="" id="top-btn">
+            </div>
 
         </body>
 

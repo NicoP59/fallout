@@ -25,6 +25,9 @@
                         votre commande
                         directement dans la boîte aux lettre de votre abri attitré. Passez une agréable journée ! </p>
                 @endforeach
+                <div class="retour-div">
+                    <a href="/" class="retour"><i class="bi bi-house-door"></i></a>
+                </div>
             </article>
 
         </body>

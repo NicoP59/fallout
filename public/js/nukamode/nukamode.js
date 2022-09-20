@@ -39,6 +39,7 @@ function changeMode() {
         root.setProperty("--backgroundcolor-download-img", "#8F0201");
         root.setProperty("--border-article-create", "3px solid #EFE5CA");
         root.setProperty("--background-input", "#EFE5CA");
+        root.setProperty("--color-icons", "#EE0101");
 
         mode++;
     } else {
@@ -73,6 +74,7 @@ function changeMode() {
         root.setProperty("--backgroundcolor-download-img", "#486E9D");
         root.setProperty("--border-article-create", "3px solid #e2da47");
         root.setProperty("--background-input", "#fff");
+        root.setProperty("--color-icons", "#486e9d");
 
         mode = 0;
     }

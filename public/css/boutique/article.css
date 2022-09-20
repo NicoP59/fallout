@@ -1,3 +1,247 @@
+.article {
+    color: var(--color-h1h2);
+    padding-top: 10px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    padding-bottom: 150px;
+}
+
+.retour {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 50px;
+    text-align: left;
+}
+
+.retour-a {
+    color: var(--color-h1h2);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.article-on-sale {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+}
+
+.img-article {
+    width: 40%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
 .img-produit {
-    width: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.h2-boutique {
+    color: var(--color-h1h2);
+    text-align: center;
+}
+
+.free-delivery {
+    color: var(--color-h1h2);
+    text-align: center;
+    color: #ee0101;
+    padding-bottom: 20px;
+}
+
+.infos-article {
+    width: 50%;
+}
+
+.icons,
+.icons-panier {
+    color: var(--color-icons);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.p-produit,
+.p-produit-description,
+.p-produit-saler {
+    padding: 15px;
+    font-size: 1.5rem;
+    color: var(--color-h1h2);
+}
+
+.p-produit-description {
+    text-align: justify;
+}
+
+.p-produit-saler {
+    font-weight: bold;
+}
+
+form {
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.quantity {
+    height: 30px;
+    border: 1px solid #486e9d;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.icons-panier:hover {
+    color: #013779;
+    transition: 1s;
+}
+
+.sold-out {
+    margin-top: 50px;
+    font-weight: bold;
+    letter-spacing: 0.5em;
+    font-size: 2rem;
+    padding-top: 50px;
+    text-align: center;
+    padding-bottom: 50px;
+    margin-bottom: 100px;
+    background-color: #ee0101;
+}
+
+.sold {
+    color: #4e0303;
+    background: linear-gradient(
+        to right,
+        #fff 20%,
+        rgb(112, 103, 103) 40%,
+        rgb(112, 103, 103) 60%,
+        #fff 80%
+    );
+    background-size: 200% auto;
+
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 1s linear infinite;
+}
+
+/* KEYFRAMES  */
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes color_anim {
+    0% {
+        fill: #ee0101;
+    }
+    50% {
+        fill: #efe5ca;
+    }
+    100% {
+        fill: #ee0101;
+    }
+}
+
+/**************SVG****************/
+
+path.one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+path.two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1400px) {
+    .article-on-sale {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .article-on-sale {
+        width: 90%;
+    }
+
+    .img-article {
+        width: 60%;
+    }
+
+    .infos-article {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .article-on-sale {
+        width: 95%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-article,
+    .infos-article {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .article-on-sale {
+        width: 100%;
+    }
+
+    .img-article {
+        width: 100%;
+        margin-bottom: 50px;
+        height: auto;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        margin-top: 50px;
+    }
+
+    .p-produit,
+    .p-produit-description,
+    .p-produit-saler {
+        padding: 0px;
+        padding-bottom: 20px;
+    }
 }

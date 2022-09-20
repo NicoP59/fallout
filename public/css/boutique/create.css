@@ -1,8 +1,22 @@
 .create-article {
     color: var(--color-h1h2);
-    padding-top: 150px;
+    padding-top: 10px;
     text-align: center;
     letter-spacing: 0.1em;
+    padding-bottom: 10px;
+}
+
+.retour {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 50px;
+    text-align: left;
+}
+
+.retour-a {
+    color: var(--color-h1h2);
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .form-create-article {

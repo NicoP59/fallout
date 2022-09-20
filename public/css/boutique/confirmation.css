@@ -21,6 +21,13 @@ i {
     color: var(--color-delivery);
 }
 
+.retour-div {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 2rem;
+    overflow: hidden;
+}
+
 .confirm {
     margin-top: 150px;
     width: 40%;
