@@ -80,7 +80,7 @@ class UserController extends Controller
         $request->validate([
             'nom' => ['required'],
             'prenom' => ['required'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users'],
             'mdp' => ['required'],
             'password_confirmation' => ["required"],
         ]);

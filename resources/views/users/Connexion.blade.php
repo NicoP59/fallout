@@ -51,13 +51,13 @@
                 </p>
 
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong>, il y a eu des problèmes avec vos informations...
 
-
-                @error('message')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                        </div>
+                @endif
 
                 <form class="col-md-4 p-5 bg-dark text-white m-auto" method="POST" action="/connexion">
 
@@ -70,6 +70,7 @@
                         <input class="form-control" type="email" name="email" id="email"
                             placeholder="Votre email">
 
+
                     </div>
 
                     <div class="form-group">
@@ -78,6 +79,9 @@
                         </label>
                         <input class="form-control" type="password" name="mdp" id="mdp"
                             placeholder="Votre mot de passe">
+
+
+
 
                     </div>
 

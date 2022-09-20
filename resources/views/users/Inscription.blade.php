@@ -49,6 +49,13 @@
                     Nous vous remercions de la confiance que vous accordez à RobCo Industries.
                 </p>
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong>, il y a eu des problèmes avec vos informations...
+
+                        </div>
+                @endif
 
                 <form class="col-md-5 col-lg-4 p-5 m-2 bg-dark text-white m-auto" method="POST" action="/inscription">
 
@@ -72,6 +79,10 @@
                         <label for="email">Email >></label>
                         <input class="form-control" type="email" name="email" id="email"
                             placeholder="Votre email">
+
+                        {{-- @error('email')
+                                <span class="text-danger"></span>
+                            @enderror --}}
                     </div>
 
                     <div class="form-group">
@@ -86,9 +97,12 @@
                             id="password_confirmation" placeholder="Confirmer">
                     </div>
 
+
+
                     <div class="form-group mt-3">
                         <input type="submit" class="btn btn-primary" value="Inscription" id="btn-valid-form">
                     </div>
+
 
                 </form>
     </body>
