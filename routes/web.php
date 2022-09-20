@@ -90,4 +90,4 @@ Route::post('/FormUpdate/{id}',  'App\Http\Controllers\AbriController@Update')->
 Route::get('/delete/{id}',  'App\Http\Controllers\AbriController@delete')->middleware('isAdmin');
 
 // INSCRIPTION A L'ABRI
-Route::post('/UpdateUserAbri/{id}',  'App\Http\Controllers\AbriController@UpdateAbriUserAction')->middleware('isLogged');;
+Route::post('/UpdateUserAbri/{id}',  'App\Http\Controllers\AbriController@UpdateAbriUserAction')->middleware('isLogged');
