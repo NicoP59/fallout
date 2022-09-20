@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" sizes="16x10" href="img/nukamode/vaultmode.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/templates/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nukamode/nukamode.css') }}">
     <link rel="stylesheet" href="{{ asset('css/templates/header.css') }}">
@@ -39,7 +41,7 @@
                 <a href="/abris" class="linky">Abris</a>
             </div>
             <div class="link">
-                <a href="#" class="linky">Boutique</a>
+                <a href="/boutique" class="linky">Boutique</a>
             </div>
             <div id="nuka-link" class="link">
                 <a href="/nuka-world" class="linky">Nuka World</a>
@@ -105,5 +107,3 @@
 
 <script src="/js/burger.js"></script>
 <script src="/js/nukamode/nukamode.js"></script>
-
-

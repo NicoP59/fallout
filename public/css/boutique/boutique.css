@@ -1,0 +1,16 @@
+.produit {
+    background-color: red;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+.img-produit {
+    width: 10em;
+}
+
+/* ======================== */
+.icon-wrapper {
+    width: 50px;
+    height: 50px;
+    padding-bottom: 100px;
+}

@@ -28,15 +28,12 @@ Route::get('/nuka-world', function () {
 Route::get('/inscription', 'App\Http\Controllers\UserController@AffichageFormulaireInscription')->middleware('NotLogged');
 Route::post('/inscription', 'App\Http\Controllers\UserController@InscriptionAction')->middleware('NotLogged');
 
-
 // CONNEXION
 Route::get('/connexion', 'App\Http\Controllers\UserController@AffichageFormulaireConnexion')->middleware('NotLogged');
 Route::post('/connexion', 'App\Http\Controllers\UserController@ConnexionAction')->middleware('NotLogged');
 
-
 // DÉCONNEXION
 Route::get('/deconnexion', 'App\Http\Controllers\UserController@DeconnexionAction')->middleware('isLogged');
-
 
 // MON COMPTE
 Route::get('/mon-profil', 'App\Http\Controllers\UserController@AffichageMonCompte')->middleware('isLogged');
@@ -48,6 +45,21 @@ Route::get('/modifier-confrerie', 'App\Http\Controllers\UserController@Affichage
 Route::post('/modifier-confrerie', 'App\Http\Controllers\UserController@UpdateConfrerieAction')->middleware('isLogged');
 Route::get('/delete-compte/{iduser}',  'App\Http\Controllers\UserController@destroy')->middleware('isLogged');
 
+// BOUTIQUE
+Route::get('/boutique', 'App\Http\Controllers\BoutiqueController@AffichageBoutique');
+Route::get('/boutique/article/{id}', 'App\Http\Controllers\BoutiqueController@AffichageArticle');
+// PANIER
+Route::get('/panier', 'App\Http\Controllers\BoutiqueController@AffichagePanier');
+Route::post('/panier/{idproduit}', 'App\Http\Controllers\BoutiqueController@AddtoCart')->middleware('isLogged');
+Route::get('/delete-article-panier/{idpanier}', 'App\Http\Controllers\BoutiqueController@DeleteFromCart')->middleware('isLogged');
+Route::get('/confirmation-commande', 'App\Http\Controllers\BoutiqueController@ConfirmationCommande')->middleware('isLogged');
+Route::get('/delete-commande', 'App\Http\Controllers\BoutiqueController@DeleteAllFromCart')->middleware('isLogged');
+// CRUD BOUTIQUE
+Route::get('/create-article', 'App\Http\Controllers\BoutiqueController@AffichageCreationArticle')->middleware('isLogged');
+Route::post('/create-article', 'App\Http\Controllers\BoutiqueController@CreateArticleAction')->middleware('isLogged');
+Route::get('/update-article/{id}', 'App\Http\Controllers\BoutiqueController@AffichageModificationArticle')->middleware('isLogged');
+Route::post('/update-article/{id}', 'App\Http\Controllers\BoutiqueController@UpdateArticleBoutique')->middleware('isLogged');
+Route::get('/delete-article/{id}',  'App\Http\Controllers\BoutiqueController@DeleteArticleBoutique')->middleware('isLogged');
 
 // GESTION UTILISATEUR
 Route::get('/gestion', 'App\Http\Controllers\UserManagementController@AffichageGestion')->middleware('isAdmin');
@@ -69,7 +81,6 @@ Route::post('/forget-password', 'App\Http\Controllers\ForgotPasswordController@p
 // RÉINITIALISER LE MOT DE PASSE 
 Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@getPassword');
 Route::post('/reset-password', 'App\Http\Controllers\ResetPasswordController@updatePassword');
-
 
 // VÉRIFICATION DE MAIL
 Route::get('/envoie-mail/{iduser}', 'App\Http\Controllers\VerificationEmailController@envoieMail');

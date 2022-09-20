@@ -1,0 +1,15 @@
+.produits {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.produit {
+    background-color: red;
+    border: 2px solid black;
+    width: 400px;
+}
+
+.img-produit {
+    width: 200px;
+}

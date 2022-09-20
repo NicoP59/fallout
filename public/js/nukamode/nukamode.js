@@ -9,7 +9,7 @@ nuka.addEventListener("click", changeMode);
 function changeMode() {
     if (mode == 0) {
         // NUKA MODE
-        nuka.src = "img/nukamode/nukamode.svg";
+        nuka.src = "/img/nukamode/nukamode.svg";
         root.setProperty("--display-nuka-link", "block");
 
         // HOME + TEMPLATES
@@ -33,10 +33,17 @@ function changeMode() {
         root.setProperty("--color-border-bottom-special", "3px solid #EFE5CA");
         root.setProperty("--border-img-special", "3px solid #EFE5CA");
 
+        // BOUTIQUE
+
+        root.setProperty("--color-delivery", "#EFE5CA");
+        root.setProperty("--backgroundcolor-download-img", "#8F0201");
+        root.setProperty("--border-article-create", "3px solid #EFE5CA");
+        root.setProperty("--background-input", "#EFE5CA");
+
         mode++;
     } else {
         // VAULT MODE
-        nuka.src = "img/nukamode/vaultmode.svg";
+        nuka.src = "/img/nukamode/vaultmode.svg";
         root.setProperty("--display-nuka-link", "none");
 
         // HOME + TEMPLATES
@@ -58,7 +65,14 @@ function changeMode() {
         root.setProperty("--color-background-button-home", "#ffffff");
         root.setProperty("--color-border-top-special", "3px solid #e2da47");
         root.setProperty("--color-border-bottom-special", "3px solid #e2da47");
-        root.setProperty("--border-img-special", "3px solid #363437");
+        root.setPrope;
+
+        // BOUTIQUE
+
+        root.setProperty("--color-delivery", "#000");
+        root.setProperty("--backgroundcolor-download-img", "#486E9D");
+        root.setProperty("--border-article-create", "3px solid #e2da47");
+        root.setProperty("--background-input", "#fff");
 
         mode = 0;
     }
