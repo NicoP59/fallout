@@ -1,15 +1,276 @@
+* {
+    overflow-x: hidden;
+    font-family: monospace;
+}
+
+.panier-titre {
+    color: var(--color-h1h2);
+    padding-top: 10px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    padding-bottom: 150px;
+}
+
+.retour {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 50px;
+    text-align: left;
+}
+
+.retour-a {
+    color: var(--color-h1h2);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* PANIER VIDE  */
+
+.connect-before,
+.no-produit {
+    border: var(--border-presentation);
+    border-radius: 10px;
+    padding: 50px;
+    margin: auto;
+    width: 50%;
+    background-color: var(--color-presentation);
+    text-align: center;
+    margin-bottom: 150px;
+    color: var(--color-delivery);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+}
+
+.produit-vide {
+    font-weight: bold;
+    color: var(--color-delivery);
+}
+
+.icons {
+    color: var(--color-delivery);
+    font-weight: bold;
+    font-size: 1.7rem;
+    padding-bottom: 20px;
+}
+
+.co {
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--color-delivery);
+}
+
+/* PANIER REMPLI */
+
 .produits {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 10px;
 }
 
 .produit {
-    background-color: red;
-    border: 2px solid black;
-    width: 400px;
+    background-color: var(--color-presentation);
+    border: var(--border-presentation);
+    padding: 10px;
+}
+
+.img-produit-div {
+    width: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 .img-produit {
-    width: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.p-title-produit {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--color-delivery);
+    padding-bottom: 10px;
+}
+
+.p-produit,
+.p-produit-total {
+    padding: 5px;
+    color: var(--color-delivery);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.delete-div {
+    padding-top: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.bi-trash3,
+.bi-cart4 {
+    color: var(--color-delivery);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* CONFIRMATION */
+
+.total-p {
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.prix {
+    color: #e2da47;
+}
+
+.commande-confirmation {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    text-align: center;
+    background-color: var(--color-presentation);
+    padding: 50px;
+}
+
+.a-confirmation-div {
+    overflow: hidden;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.caddy {
+    overflow: hidden;
+    animation: delivery 1s ease 0s infinite normal forwards;
+}
+
+.a-confirmation {
+    overflow: hidden;
+    color: var(--color-delivery);
+}
+
+/* TOP BUTTON */
+
+#top-btn {
+    animation: Quantum 2s ease 0s infinite normal forwards;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    width: 5em;
+    box-sizing: unset;
+}
+
+/* KEYFRAMES */
+
+@keyframes Quantum {
+    0%,
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 50% 50%;
+    }
+
+    10% {
+        transform: rotate(8deg);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: rotate(-10deg);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: rotate(10deg);
+    }
+
+    80% {
+        transform: rotate(-8deg);
+    }
+
+    90% {
+        transform: rotate(8deg);
+    }
+}
+
+@keyframes delivery {
+    0% {
+        transform: translate(0);
+    }
+
+    10% {
+        transform: translate(-2px, -2px);
+    }
+
+    20% {
+        transform: translate(2px, -2px);
+    }
+
+    30% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(2px, 2px);
+    }
+
+    50% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, -2px);
+    }
+
+    70% {
+        transform: translate(-2px, 2px);
+    }
+
+    80% {
+        transform: translate(-2px, -2px);
+    }
+
+    90% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 885px) {
+    .connect-before,
+    .no-produit {
+        width: 80%;
+    }
+
+    .produits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .produits {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .connect-before,
+    .no-produit {
+        width: 95%;
+    }
 }

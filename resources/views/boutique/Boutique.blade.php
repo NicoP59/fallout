@@ -13,34 +13,84 @@
 
         <body>
 
-            <h1>BOUTIQUE</h1>
-            @if (session('iduser'))
-                <a href="/create-article">Créer un article</a>
-            @endif
+            {{-- PANIER --}}
             <div class="icon-wrapper">
                 <a href="/panier">
-                    <figure>
+                    <figure class="figure-relative">
                         <img src="/img/icons/bell_icon.svg" alt="" class="bell-icon">
-                        <figcaption>
-                            {{ $nbr }}
+                        <figcaption class="nombre-article">
+                            <p class="nbr">{{ $nbr }}</p>
                         </figcaption>
                     </figure>
                 </a>
             </div>
 
-            @foreach ($boutiques as $boutique)
-                <div class="produit">
-                    <img src="{{ asset('storage/' . $boutique->img) }}" alt="Produit" class="img-produit" />
-                    <p>{{ $boutique->nom }}</p>
-                    <p><a href="/boutique/article/{{ $boutique->idproduit }}">En savoir plus sur cet article</a></p>
-                    @if (session('iduser') == $boutique->iduser)
-                        <div>
-                            <a class="text-danger" href="/delete-article/{{ $boutique->idproduit }}">Supprimer</a>
-                            <a class="text-primary" href="/update-article/{{ $boutique->idproduit }}">Modifier</a>
-                        </div>
-                    @endif
+            <h1 class="boutique-page">BOUTIQUE</h1>
+            {{-- CREER UN ARTICLE --}}
+
+            @if (session('iduser'))
+                <h2 class="titre-shop">Tu ne l'utilises plus ?</h2>
+                <h2 class="titre-shop">Vends le sur Vault-Tec Shop !</h2>
+                <div class="vendre-article">
+                    <div>
+                        <img src="/img/templates/LOGO.png" alt="Vault-Tec" class="vault-tec-logo">
+                    </div>
+                    <div>
+                        <a href="/create-article" class="create-annonce-a">Créer une annonce</a>
+                    </div>
                 </div>
-            @endforeach
+            @endif
+
+            {{-- ARTICLES --}}
+            <article class="articles">
+                {{-- ARTICLE --}}
+                @foreach ($users as $user)
+                    <section class="article">
+                        {{-- IMAGE SECTION --}}
+                        <div class="img-div">
+                            <div class="image-article">
+                                <figure class="figure-img-produit">
+                                    <figcaption class="nom-produit">
+                                        <a href="/boutique/article/{{ $user->idproduit }}" class="prod">
+                                            {{ $user->nom }}
+                                        </a>
+                                    </figcaption>
+                                    <img src="{{ asset('storage/' . $user->img) }}" alt="Produit" class="img-produit" />
+                                </figure>
+                            </div>
+                        </div>
+
+                        {{-- INFORMATIONS DU PRODUIT SECTION --}}
+                        <div class="bloc-infos">
+                            <div class="info-article">
+                                @if ($user->quantité > 0)
+                                    <p class="bi-cart-check"><i class="bi"></i> En stock</p>
+                                    <p class="p-prix"><i class="bi bi-tag"></i> {{ $user->prix }} capsules</p>
+                                @else
+                                    <p class="bi-cart-x"><i class="bi"></i> Hors stock</p>
+                                @endif
+                                @if (session('iduser') == $user->iduser)
+                                    <div class="user-actions">
+                                        <a href="/delete-article/{{ $user->idproduit }}" class="icon-trash"><i
+                                                class="bi bi-trash3"></i></a>
+                                        <a href="/update-article/{{ $user->idproduit }}" class="icon-edit"><i
+                                                class="bi bi-pencil"></i></a>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="info-vendeur">
+                                <img src="{{ $user->avatar }}" alt="Avatar du vendeur" class="img-vendeur" />
+                                <p>Vendu par : {{ $user->prenom }}</p>
+                            </div>
+                        </div>
+
+                    </section>
+                @endforeach
+            </article>
+
+            <div id="top-btn-section">
+                <img src="img/icons/quantum.webp" alt="" id="top-btn">
+            </div>
 
         </body>
 
