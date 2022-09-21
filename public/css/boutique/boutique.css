@@ -1,16 +1,292 @@
-.produit {
-    background-color: red;
-    border: 2px solid black;
+main {
+    font-family: monospace;
+}
+
+.boutique-page {
+    font-size: 50px;
+    color: var(--color-h1h2);
+    padding-top: 10px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
+
+/* CREER UN ARTICLE */
+
+.titre-shop {
+    text-align: center;
+    color: var(--color-h1h2);
+    padding-bottom: 20px;
+}
+
+.vendre-article {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.create-annonce-a {
+    padding: 10px;
+    color: var(--color-h1h2);
+}
+
+.create-annonce-a:hover {
+    transition: 1s;
+    background-color: var(--color-presentation);
+}
+
+.vault-tec-logo {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 200px;
+}
+
+/* PANIER */
+
+.icon-wrapper {
+    padding-left: 10px;
+    width: 70px;
+    height: 50px;
+    padding-bottom: 100px;
+}
+
+.figure-relative {
+    display: flex;
+}
+
+.nombre-article {
+    text-align: center;
     font-weight: bold;
 }
 
-.img-produit {
-    width: 10em;
+.nbr {
+    background-color: #d42222;
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 20px;
 }
 
-/* ======================== */
-.icon-wrapper {
-    width: 50px;
-    height: 50px;
-    padding-bottom: 100px;
+/* ARTICLES */
+
+.articles {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 10px;
+}
+
+.article {
+    background-color: var(--color-presentation);
+    border: var(--border-article-create);
+    font-weight: bold;
+}
+
+/* IMAGE ARTICLE  */
+
+.img-div {
+    background-color: var(--background-input);
+    border-bottom: var(--border-article-create);
+    z-index: 0;
+    position: relative;
+    width: auto;
+}
+
+.image-article {
+    text-align: center;
+}
+
+.figure-img-produit {
+    position: relative;
+}
+
+.nom-produit {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    opacity: 0;
+}
+
+.nom-produit:hover {
+    opacity: 1;
+    transition: 1s;
+}
+
+.prod {
+    padding-top: 5px;
+    width: 100%;
+    background-color: var(--color-presentation);
+    color: var(--color-title-boutique);
+    padding-bottom: 5px;
+}
+
+.img-produit {
+    z-index: 0;
+    width: 310px;
+    height: 300px;
+    object-fit: fill;
+    filter: blur(2px) grayscale(100%);
+    transition: transform 0.2s;
+}
+
+/* INFOS ARTICLES */
+
+.bloc-infos {
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bi-cart-check {
+    padding-top: 5px;
+    font-size: 1.5rem;
+    color: rgb(35, 163, 35);
+    font-weight: bold;
+}
+
+.bi-cart-x {
+    padding-top: 5px;
+    font-size: 1.5rem;
+    color: rgb(255, 86, 86);
+    font-weight: bold;
+}
+
+.p-prix {
+    padding-top: 10px;
+}
+
+.info-article,
+.info-vendeur {
+    width: 50%;
+
+    text-align: center;
+}
+
+.user-actions {
+    padding-top: 15px;
+}
+
+.icon-trash {
+    padding-right: 15px;
+}
+
+.icon-trash,
+.icon-edit {
+    color: var(--color-icons-user-action);
+}
+
+.img-vendeur {
+    padding-bottom: 10px;
+    width: 5em;
+}
+
+/* TOP BUTTON */
+
+#top-btn {
+    animation: Quantum 2s ease 0s infinite normal forwards;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    width: 5em;
+    box-sizing: unset;
+}
+
+/* KEYFRAMES */
+
+@keyframes Quantum {
+    0%,
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 50% 50%;
+    }
+
+    10% {
+        transform: rotate(8deg);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: rotate(-10deg);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: rotate(10deg);
+    }
+
+    80% {
+        transform: rotate(-8deg);
+    }
+
+    90% {
+        transform: rotate(8deg);
+    }
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1600px) {
+    .articles {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .articles {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .articles {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nom-produit,
+    .nom-produit:hover {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .articles {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .bloc-infos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-vendeur {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .articles {
+        padding: 0px;
+    }
+
+    .img-div,
+    .image-article,
+    .img-produit {
+        width: 100%;
+    }
+
+    .boutique-page {
+        font-size: 25px;
+    }
 }

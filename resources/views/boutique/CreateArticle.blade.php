@@ -8,6 +8,7 @@
     <main>
 
         <body>
+            <p class="retour"><a href="/boutique" class="retour-a"><i class="bi bi-arrow-return-left"></i></a></p>
 
             <h1 class="create-article">CRÉER UN ARTICLE</h1>
 
