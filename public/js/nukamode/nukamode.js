@@ -40,6 +40,9 @@ function changeMode() {
         root.setProperty("--border-article-create", "3px solid #EFE5CA");
         root.setProperty("--background-input", "#EFE5CA");
         root.setProperty("--color-icons", "#EE0101");
+        root.setProperty("--color-icons-user-action", "#fff");
+        root.setProperty("--background-icons-user-action", "#8F0201");
+        root.setProperty("--color-title-boutique", "#EFE5CA");
 
         mode++;
     } else {
@@ -75,6 +78,9 @@ function changeMode() {
         root.setProperty("--border-article-create", "3px solid #e2da47");
         root.setProperty("--background-input", "#fff");
         root.setProperty("--color-icons", "#486e9d");
+        root.setProperty("--color-icons-user-action", "#e2da47");
+        root.setProperty("--background-icons-user-action", "#e2da47");
+        root.setProperty("--color-title-boutique", "#e2da47");
 
         mode = 0;
     }

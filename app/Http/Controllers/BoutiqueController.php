@@ -15,11 +15,11 @@ class BoutiqueController extends Controller
     // Fonction qui va charger la view "Inscription" dans le dossier users
     public function AffichageBoutique()
         {
-            $boutiques = Boutique::all();
+            $users = User::join('boutiques', 'boutiques.iduser', '=', 'users.iduser')->get(['users.iduser', 'boutiques.idproduit', 'boutiques.iduser', 'boutiques.img', 'boutiques.nom', 'boutiques.quantité', 'boutiques.prix', 'users.prenom', 'users.email', 'users.avatar']);
             $nbr = Panier::query()
             ->where('iduser', session('iduser'))
             ->count();
-            return view('boutique.Boutique')->with('boutiques', $boutiques)->with('nbr', $nbr);
+            return view('boutique.Boutique')->with('users', $users)->with('nbr', $nbr);
         }
 
     public function AffichageArticle($id)

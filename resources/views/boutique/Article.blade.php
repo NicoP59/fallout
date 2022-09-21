@@ -44,28 +44,30 @@
                     </section>
                 </article>
 
-                {{-- Si l'item est supérieur à 0 --}}
-                @if ($boutique->quantité > 0)
-                    {{-- Si l'item est vendu par quelqu'un d'autre que la personne connecté --}}
-                    @if ($boutique->iduser != session('iduser'))
-                        <form action="/panier/{{ $boutique->idproduit }}" method="POST">
-                            @csrf
-                            <div>
-                                <label for="pquantité" class="p-produit">Quantité :</label>
-                                <input type="number" name="pquantité" value="1" min="1"
-                                    max={{ $boutique->quantité }} class="quantity" placeholder="Quantité ?">
-                            </div>
-                            <div>
-                                <button type="submit"><span class="icons-panier"><i class="bi bi-plus"></i> <i
-                                            class="bi bi-basket2"></i></span></button>
-                            </div>
-                        </form>
+                {{-- Si l'item est supérieur à 0 et si une personne est connecté --}}
+                @if (session('iduser'))
+                    @if ($boutique->quantité > 0)
+                        {{-- Si l'item est vendu par quelqu'un d'autre que la personne connecté --}}
+                        @if ($boutique->iduser != session('iduser'))
+                            <form action="/panier/{{ $boutique->idproduit }}" method="POST">
+                                @csrf
+                                <div>
+                                    <label for="pquantité" class="p-produit">Quantité :</label>
+                                    <input type="number" name="pquantité" value="1" min="1"
+                                        max={{ $boutique->quantité }} class="quantity" placeholder="Quantité ?">
+                                </div>
+                                <div>
+                                    <button type="submit"><span class="icons-panier"><i class="bi bi-plus"></i> <i
+                                                class="bi bi-basket2"></i></span></button>
+                                </div>
+                            </form>
+                        @endif
+                    @else
+                        {{-- Sinon sold out --}}
+                        <div class="sold-out">
+                            <p class="sold">ARTICLE ÉPUISÉ</p>
+                        </div>
                     @endif
-                @else
-                    {{-- Sinon sold out --}}
-                    <div class="sold-out">
-                        <p class="sold">ARTICLE ÉPUISÉ</p>
-                    </div>
                 @endif
             @endforeach
 

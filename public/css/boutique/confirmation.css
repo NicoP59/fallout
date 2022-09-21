@@ -1,5 +1,6 @@
-* {
+main {
     overflow-x: hidden;
+    font-family: monospace;
 }
 
 .confirmation-commande {
