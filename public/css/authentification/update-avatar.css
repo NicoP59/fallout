@@ -1,9 +1,69 @@
+main {
+    font-family: monospace;
+}
+
+.update-avatar, h3 {
+    color: var(--color-h1h2);
+    padding-top: 15px;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.form-update-avatar {
+    margin-top: 100px;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-create {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.image {
+    border: solid #486e9d;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    background-color: var(--backgroundcolor-download-img);
+    margin-bottom: 15px;
+}
+
+
+
 .avatar-div {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    border: solid #486e9d;
+    padding: 50px;
 }
 
 .img-avatar {
-    width: 10em;
+    width: 10.5em;
+    border: solid #e2d447;
+    border-radius: 10px;
+    background-color: #486e9d;
+    padding: 10px;
 }
+ h3{
+    color: #e2d447;
+ }
+
+ .radio{
+    text-align: center;
+    padding-bottom: 20px;
+ }
+
+
+
+ /* TEST RADIO */
+
+
+
