@@ -1,12 +1,114 @@
+main {
+    font-family: monospace;
+}
+
+.avatar {
+    text-align: center;
+}
+
+.img-avatar {
+    width: 200px;
+}
+
+/* VERIFICATION */
+
+.verified {
+    margin-left: 10px;
+    width: 250px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #000;
+}
+
+.verification-link {
+    color: var(--color-span-home);
+}
+
+.verification-notok {
+    padding: 10px;
+    background-color: #8f0201;
+}
+
+.verify-icon-notok,
+.verify-icon-ok {
+    padding-bottom: 10px;
+}
+
+.verify-icon-notok {
+    color: #eb5555;
+}
+
+.verification-ok {
+    padding: 10px;
+    background-color: rgb(25, 161, 25);
+    color: #fff;
+}
+
+/* BIENVENUE */
+
+.account-page {
+    font-size: 50px;
+    color: var(--color-h1h2);
+    padding-top: 10px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.pipboy {
+    color: var(--color-h1h2);
+    text-align: center;
+    padding-bottom: 150px;
+}
+
+.pipboy-page {
+    padding-bottom: 10px;
+}
+
+.pipboy-link {
+    letter-spacing: 0.1em;
+    color: var(--color-h1h2);
+}
+
+.bienvenue {
+    width: 60%;
+    text-align: justify;
+    margin: auto;
+    padding: 15px;
+    background-color: var(--color-presentation);
+    border: var(--border-presentation);
+    color: var(--background-input);
+    font-size: 1.5em;
+    margin-bottom: 50px;
+}
+
+.span {
+    color: var(--color-span-home);
+    font-weight: bold;
+}
+
 /* LUNCHBOX */
+
+.titre-kit {
+    font-size: 1.6em;
+    padding: 20px;
+    letter-spacing: 0.1em;
+    color: var(--background-input);
+    text-align: center;
+}
+
+.section-items {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .slot {
     position: relative;
-    /* Profondeur sur le parent */
     perspective: 1000px;
 }
 
-/* Enfants -> div du slot */
 .slot div {
     width: 35px;
     height: 35px;
@@ -32,22 +134,340 @@
     animation: LunchBox 2s ease 0s infinite normal forwards;
 }
 
-.img-items {
+.img-items,
+.item-welcome-kit {
     width: 100px;
+    padding-bottom: 20px;
+}
+
+.item-title {
+    color: var(--background-input);
 }
 
 .items-div {
     display: none;
 }
 
-.items-generate {
-    display: flex;
-    justify-content: center;
+.section-items-generate,
+.items-div {
+    border-radius: 20px;
+    margin: 10px;
+    border: var(--border-presentation);
+    background-color: var(--color-presentation);
+}
+
+.items-generate,
+.items-generate-ok,
+.base-items-ok,
+.base-items {
     align-items: center;
+    display: grid;
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 10px;
+    text-align: center;
+}
+
+.items-generate,
+.base-items {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.items-generate-ok,
+.base-items-ok {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.button-kit {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--background-input);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.button-kit:hover {
+    transition: 1s;
+    text-shadow: 0px 0px 41px rgba(226, 218, 71, 1);
+}
+
+/* IDENTITY CARD  */
+
+.title-identity,
+.title-identity-2 {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-titre-vaulttec);
+    color: var(--color-presentation);
+    letter-spacing: 0.2em;
+    font-size: 30px;
+}
+
+.title-identity {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.title-identity-2 {
+    margin-bottom: 50px;
+}
+
+.choose {
+    color: var(--color-h1h2);
+    padding-bottom: 50px;
+}
+
+.title {
+    text-align: center;
+    color: var(--color-h1h2);
+    letter-spacing: 0.2em;
+    font-size: 30px;
+}
+
+.img-vault-tec {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 250px;
+}
+
+/* ORGANISATION */
+
+.confreries,
+.choisir-abri {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.chef {
+    font-style: italic;
 }
 
 .img-confrerie {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+
+.link-modify-confrerie,
+.chef {
+    color: var(--color-h1h2);
+}
+
+.no-organisation,
+.choose-organisation {
+    color: var(--color-h1h2);
+}
+
+.no-organisation {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.choose-organisation {
+    padding: 10px 50px;
+    border: 1px solid #000;
+    color: var(--color-presentation);
+    background-color: var(--color-titre-vaulttec);
+}
+
+.abri {
+    color: var(--color-span-home);
+    padding: 5px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.abri-map {
+    align-items: center;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.map-abri {
+    border: var(--border-presentation);
+    width: 500px;
+    margin-right: 100px;
+}
+
+.infos-abris {
+    margin-top: 50px;
+    background-color: var(--color-presentation);
+    padding: 2px;
+    color: var(--background-input);
+    text-align: left;
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: var(--border-presentation);
+}
+
+.info-abri {
+    padding: 10px;
+}
+
+/* FORMULAIRE */
+
+.img-avatar-form {
+    width: 200px;
+}
+
+.link-avatar {
+    text-align: center;
+    padding-top: 10px;
+    color: var(--color-span-home);
+}
+
+.form,
+.delete-account {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: var(--color-presentation);
+}
+
+.form {
+    padding: 20px;
+    border-top: var(--border-presentation);
+    border-left: var(--border-presentation);
+    border-right: var(--border-presentation);
+}
+
+.infos-user {
+    border-radius: 30px;
+    padding: 10px 30px;
+    border: var(--border-presentation);
+}
+
+.form-update {
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete-account {
+    border-bottom: var(--border-presentation);
+    border-left: var(--border-presentation);
+    border-right: var(--border-presentation);
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.text-danger-account {
+    color: var(--background-input);
+}
+
+.trash {
+    font-size: 20px;
+    padding: 5px;
+    animation: delete 2s ease 0s infinite normal forwards;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--background-input);
+}
+
+input {
+    font-family: monospace;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin: 10px;
+}
+
+.update-btn {
+    text-align: center;
+}
+
+.button-update {
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 10px 30px;
+    text-decoration: none;
+    background-color: var(--background-input);
+}
+
+/* TOP BUTTON */
+
+#top-btn {
+    animation: Quantum 2s ease 0s infinite normal forwards;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
     width: 5em;
+    box-sizing: unset;
+}
+
+/* KEYFRAMES */
+
+@keyframes delete {
+    0% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+        transform-origin: center center;
+    }
+
+    10% {
+        animation-timing-function: ease-in;
+        transform: scale(0.91);
+    }
+
+    17% {
+        animation-timing-function: ease-out;
+        transform: scale(0.98);
+    }
+
+    33% {
+        animation-timing-function: ease-in;
+        transform: scale(0.87);
+    }
+
+    45% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+    }
+}
+
+@keyframes Quantum {
+    0%,
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 50% 50%;
+    }
+
+    10% {
+        transform: rotate(8deg);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: rotate(-10deg);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: rotate(10deg);
+    }
+
+    80% {
+        transform: rotate(-8deg);
+    }
+
+    90% {
+        transform: rotate(8deg);
+    }
 }
 
 @keyframes LunchBox {
@@ -82,8 +502,124 @@
     }
 }
 
-/* AVATAR */
+/* RESPONSIVE */
 
-.img-avatar {
-    width: 5em;
+@media screen and (max-width: 1050px) {
+    .form,
+    .delete-account {
+        width: 95%;
+    }
+
+    .form-update {
+        flex-direction: column;
+        align-items: center;
+    }
+    .link-avatar {
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .bienvenue {
+        width: 80%;
+    }
+
+    .items-generate,
+    .base-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .map-abri {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .abri-map {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .map-abri {
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    label {
+        font-size: 13px;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    .infos-user {
+        width: 100%;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .verified {
+        margin-top: 50px;
+        margin-left: 0px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bienvenue {
+        width: 90%;
+    }
+
+    .items-generate,
+    .base-items {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .item {
+        padding-bottom: 20px;
+    }
+
+    .base-items,
+    .items-generate {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .infos-abris,
+    .abri-map {
+        width: auto;
+    }
+
+    .title-identity,
+    .title-identity-2 {
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .delete-account,
+    .form {
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .button-update {
+        padding: 10px 15px;
+    }
+
+    .choose-organisation {
+        padding: 10px 20px;
+    }
+
+    .infos-abris,
+    .map-abri {
+        width: 100vw;
+    }
 }
