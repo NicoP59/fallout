@@ -12,7 +12,7 @@
             <div class="image">
                 <img src="/img/templates/LOGO.png" alt="Vault-Tec" class="img-create">
 
-                <h3>Hommes</h3>
+                <h3>HOMMES</h3>
 
 
                 <article class="avatar-div">
@@ -68,9 +68,14 @@
             </div>
             </article>
 
+            <div class="validate">
+                <button class="btn" type="submit">Validation</button>
+            </div>
+
+
             <div class="image">
                 <img src="/img/templates/LOGO.png" alt="Vault-Tec" class="img-create">
-                <h3>Femmes</h3>
+                <h3>FEMMES</h3>
 
                 <article class="avatar-div">
                     <div class="female1">
@@ -126,9 +131,12 @@
             </article>
 
             <div class="validate">
-                <input type="submit" value="Modifier mon avatar">
+                <button class="btn" type="submit">Validation</button>
             </div>
 
         </form>
     </main>
 @endsection
+
+
+<script src="js/input-file.js"></script>

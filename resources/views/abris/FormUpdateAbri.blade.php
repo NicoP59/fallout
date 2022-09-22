@@ -63,3 +63,5 @@
         @endforeach
     </main>
 @endsection
+
+<script src="js/input-file.js"></script>
