@@ -235,6 +235,7 @@ function getRandomItem() {
 
         let p = document.createElement("p");
         p.innerHTML = itemsArray[aleatoire][1];
+        p.classList.add("item-title");
         div.appendChild(p);
 
         let input = document.createElement("input");
@@ -245,9 +246,10 @@ function getRandomItem() {
     }
 
     if (stock) {
-        let inputsubmit = document.createElement("input");
+        let inputsubmit = document.createElement("button");
         inputsubmit.type = "submit";
-        inputsubmit.value = `Enregistrer`;
+        inputsubmit.innerHTML = `Valider <i class="bi bi-check"></i>`;
+        inputsubmit.className = "button-kit";
         section.appendChild(inputsubmit);
     } else {
         inputsubmit.display = "none";
