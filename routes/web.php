@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/pip-boy', function () {
+    return view('pipboy');
+});
+
+
 Route::get('/nuka-world', function () {
     return view('nuka-world');
 });
