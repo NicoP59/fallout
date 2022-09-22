@@ -7,9 +7,10 @@
     <main>
 
         <body>
+            <p class="retour"><a href="/boutique" class="retour-a"><i class="bi bi-arrow-return-left"></i></a></p>
 
             @foreach ($boutiques as $boutique)
-                <h1 class="update-article">MODIFIER ARTICLE</h1>
+                <h1 class="update-article">MODIFIER UNE ANNONCE</h1>
 
                 <form method="POST" action="/update-article/{{ $boutique->idproduit }}" enctype="multipart/form-data"
                     class="form-update-article">

@@ -2,6 +2,19 @@ main {
     font-family: monospace;
 }
 
+.retour {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 50px;
+    text-align: left;
+}
+
+.retour-a {
+    color: var(--color-h1h2);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 .update-article {
     color: var(--color-h1h2);
     padding-top: 150px;

@@ -4,7 +4,21 @@ main {
     padding-top: 100px;
 }
 
-.update-avatar, h1 {
+.retour {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 50px;
+    text-align: left;
+}
+
+.retour-a {
+    color: var(--color-h1h2);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.update-avatar, .update-confrerie {
     color: var(--color-h1h2);
     padding-top: 15px;
     text-align: center;
@@ -21,7 +35,6 @@ main {
 }
 
 .confrerie {
-    flex-wrap: wrap;
     padding: 50px;
     border: solid #e2d447;
     background-color: var(--color-presentation);
@@ -39,27 +52,36 @@ main {
    
 }
 
-p{
-    color: var(--color-h1h2);
+
+.span {
+    color: var(--color-span-home);
+}
+
+.chef{
+    color: var(--background-input);
     font-size: 20px;
     text-align: justify;
     padding-top: 20px;
     padding-bottom: 30px;
 }
 
+.bold{
+    padding: 20px;
+}
+
 
 
 .btn {
     background-color: var(--color-presentation);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
     border-radius: 28px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
     font-family: Courier New;
     color: #e2d447;
     font-size: 27px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-    border: solid #e2d447;
     border: var(--border-article-create);
     cursor: pointer;   
     
@@ -72,13 +94,36 @@ p{
   }
 
   label {
-    color: var(--color-h1h2);
+    color: var(--background-input);
     font-size: 20px;
   }
 
 
 
   /* responsive */
+
+  
+  @media screen and (max-width: 1050px) {
+
+  .form-update-confrerie {
+    width: 85%;
+  }
+  }
+
+  
+  @media screen and (max-width: 500px) {
+
+.img-confreries {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 50px;
+}
+
+    .form-update-confrerie {
+      width: 95%;
+    }
+    }
 
 
   @media screen and (max-width: 400px) {

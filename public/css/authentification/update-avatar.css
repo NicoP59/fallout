@@ -4,6 +4,20 @@ main {
     padding-top: 100px;
 }
 
+.retour {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 50px;
+    text-align: left;
+}
+
+.retour-a {
+    color: var(--color-h1h2);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
 .update-avatar, h3 {
     color: var(--color-h1h2);
     padding-top: 15px;
@@ -82,8 +96,6 @@ main {
 
  .btn {
     background-color: var(--color-presentation);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
     border-radius: 28px;
     font-family: Courier New;
     color: #e2d447;

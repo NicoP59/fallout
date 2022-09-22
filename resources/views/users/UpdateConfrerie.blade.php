@@ -6,34 +6,41 @@
 
 @section('content')
     <main>
-        <h1 class="update-confrerie">Choisissez votre confrérie :</h1>
-        <form method="POST" action="/modifier-confrerie" class="form-update-confrerie">
-            @csrf
 
-            @foreach ($confreries as $confrerie)
-                <div class="confrerie">
-                    <div>
-                        <img src="{{ $confrerie->img }}" alt="" class="img-confreries">
-                    </div>
+        <body>
+            <p class="retour"><a href="/mon-profil" class="retour-a"><i class="bi bi-arrow-return-left"></i></a></p>
 
-                    <div>
-                        <p>Chef actuel : {{ $confrerie->chef }}</p>
-                    </div>
-                    <div>
-                        <p>{{ $confrerie->description }}</p>
-                    </div>
-                    <div>
-                        <label for="confrerie">Choisir : {{ $confrerie->nom }}</label>
-                        <input type="radio" name="confrerie" value="{{ $confrerie->confrerie }}">
-                    </div>
+            <h1 class="update-confrerie">Choisissez votre organisation :</h1>
+            <form method="POST" action="/modifier-confrerie" class="form-update-confrerie">
+                @csrf
 
+                @foreach ($confreries as $confrerie)
+                    <div class="confrerie">
+                        <div>
+                            <img src="{{ $confrerie->img }}" alt="" class="img-confreries">
+                        </div>
+
+                        <div>
+                            <p class="chef">Chef actuel : <span class="span">{{ $confrerie->chef }}</span></p>
+                        </div>
+                        <div class="chef">
+                            <p>{{ $confrerie->description }}</p>
+                        </div>
+                        <div class="chef">
+                            <span class="bold"><label for="confrerie">Choisir : <span
+                                        class="span">{{ $confrerie->nom }}</span></label>
+                                <input type="radio" name="confrerie" value="{{ $confrerie->confrerie }}"></span>
+                        </div>
+
+                    </div>
+                @endforeach
+
+                <div class="validate">
+                    <button class="btn" type="submit">Validation</button>
                 </div>
-            @endforeach
+            </form>
 
-            <div class="validate">
-                <button class="btn" type="submit">Validation</button>
-            </div>
+        </body>
 
-        </form>
     </main>
 @endsection
