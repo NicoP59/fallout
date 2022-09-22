@@ -32,6 +32,7 @@ function changeMode() {
         root.setProperty("--color-border-top-special", "3px solid #EFE5CA");
         root.setProperty("--color-border-bottom-special", "3px solid #EFE5CA");
         root.setProperty("--border-img-special", "3px solid #EFE5CA");
+        root.setProperty("--button-avatar", "#D42D2C");
 
         // BOUTIQUE
 
@@ -69,7 +70,7 @@ function changeMode() {
         root.setProperty("--color-background-button-home", "#ffffff");
         root.setProperty("--color-border-top-special", "3px solid #e2da47");
         root.setProperty("--color-border-bottom-special", "3px solid #e2da47");
-        root.setPrope;
+        root.setProperty("--button-avatar", "#3cb0fd");
 
         // BOUTIQUE
 
