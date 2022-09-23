@@ -17,7 +17,7 @@
             <div class="preloader">
                 <img src="{{ asset('img/templates/logo.png') }}" alt="fALLOUT" class="bigger-logo">
                 <span class="loader"></span>
-              </div>
+            </div>
             {{-- Si la session contient un id de session --}}
             @if (Session::has('iduser'))
                 {{-- On affiche ce message de bienvenue avec le prénom de session --}}
@@ -97,32 +97,44 @@
                     <div class="gallery">
                         <div class="special-div">
                             <p class="special-titre">FORCE</p>
-                           <a href="{{ asset('videos/1FORCE.mp4') }}" target="_blank"> <img src="{{ asset('img/home/force.jpg') }}" alt="SPECIAL Force" class="special-img"></a>
+                            <a href="{{ asset('videos/1FORCE.mp4') }}" target="_blank"> <img
+                                    src="{{ asset('img/home/force.jpg') }}" alt="SPECIAL Force" class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">PERCEPTION</p>
-                           <a href="{{ asset('videos/2PERCEPTION.mp4') }}" target="_blank"> <img src="{{ asset('img/home/perception.jpg') }}" alt="SPECIAL Perception" class="special-img"></a>
+                            <a href="{{ asset('videos/2PERCEPTION.mp4') }}" target="_blank"> <img
+                                    src="{{ asset('img/home/perception.jpg') }}" alt="SPECIAL Perception"
+                                    class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">ENDURANCE</p>
-                            <a href="{{ asset('videos/3ENDURANCE.mp4') }}" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/home/endurance.jpg') }}" alt="SPECIAL Endurance" class="special-img"></a>
+                            <a href="{{ asset('videos/3ENDURANCE.mp4') }}" target="_blank" rel="noopener noreferrer"><img
+                                    src="{{ asset('img/home/endurance.jpg') }}" alt="SPECIAL Endurance"
+                                    class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">CHARISME</p>
-                            <a href="{{ asset('videos/4CHARISME.mp4') }}" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/home/charisme.png') }}" alt="SPECIAL Charisme" class="special-img"></a>
+                            <a href="{{ asset('videos/4CHARISME.mp4') }}" target="_blank" rel="noopener noreferrer"><img
+                                    src="{{ asset('img/home/charisme.png') }}" alt="SPECIAL Charisme"
+                                    class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">INTELLIGENCE</p>
-                           <a href="{{ asset('videos/5INTELLIGENCE.mp4') }}" target="_blank" rel="noopener noreferrer"> <img src="{{ asset('img/home/intelligence.jpg') }}" alt="SPECIAL Intelligence"
-                                class="special-img"></a>
+                            <a href="{{ asset('videos/5INTELLIGENCE.mp4') }}" target="_blank" rel="noopener noreferrer">
+                                <img src="{{ asset('img/home/intelligence.jpg') }}" alt="SPECIAL Intelligence"
+                                    class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">AGILITÉ</p>
-                           <a href="{{ asset('videos/6AGILITE.mp4') }}" target="_blank" rel="noopener noreferrer"> <img src="{{ asset('img/home/agilité.jpg') }}" alt="SPECIAL Agilité" class="special-img"></a>
+                            <a href="{{ asset('videos/6AGILITE.mp4') }}" target="_blank" rel="noopener noreferrer"> <img
+                                    src="{{ asset('img/home/agilité.jpg') }}" alt="SPECIAL Agilité"
+                                    class="special-img"></a>
                         </div>
                         <div class="special-div">
                             <p class="special-titre">CHANCE</p>
-                           <a href="{{ asset('videos/7CHANCE.mp4') }}" target="_blank" rel="noopener noreferrer"> <img src="{{ asset('img/home/chance.jpg') }}" alt="SPECIAL Chance" class="special-img"></a>
+                            <a href="{{ asset('videos/7CHANCE.mp4') }}" target="_blank" rel="noopener noreferrer"> <img
+                                    src="{{ asset('img/home/chance.jpg') }}" alt="SPECIAL Chance"
+                                    class="special-img"></a>
                         </div>
                     </div>
                 </section>

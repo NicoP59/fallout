@@ -71,6 +71,7 @@ function changeMode() {
         root.setProperty("--color-border-top-special", "3px solid #e2da47");
         root.setProperty("--color-border-bottom-special", "3px solid #e2da47");
         root.setProperty("--button-avatar", "#3cb0fd");
+        root.setProperty("--border-img-special", "3px solid #486e9d");
 
         // BOUTIQUE
 
