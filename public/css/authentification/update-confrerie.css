@@ -1,5 +1,5 @@
 main {
-    font-family: monospace;  
+    font-family: monospace;
     padding-bottom: 100px;
     padding-top: 100px;
 }
@@ -17,14 +17,13 @@ main {
     font-weight: bold;
 }
 
-
-.update-avatar, .update-confrerie {
+.update-avatar,
+.update-confrerie {
     color: var(--color-h1h2);
     padding-top: 15px;
     text-align: center;
     letter-spacing: 0.1em;
 }
-
 
 .form-update-confrerie {
     margin-top: 100px;
@@ -49,15 +48,13 @@ main {
     background-color: #486e9d;
     padding: 10px;
     background-color: var(--color-presentation);
-   
 }
-
 
 .span {
     color: var(--color-span-home);
 }
 
-.chef{
+.chef {
     color: var(--background-input);
     font-size: 20px;
     text-align: justify;
@@ -65,74 +62,62 @@ main {
     padding-bottom: 30px;
 }
 
-.bold{
+.bold {
     padding: 20px;
 }
-
-
 
 .btn {
     background-color: var(--color-presentation);
     border-radius: 28px;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     font-family: Courier New;
     color: #e2d447;
     font-size: 27px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
     border: var(--border-article-create);
-    cursor: pointer;   
-    
-  }
-  
-  .btn:hover {
-    background: var(--button-avatar);
-    text-decoration: none;
-    
-  }
-
-  label {
-    color: var(--background-input);
-    font-size: 20px;
-  }
-
-
-
-  /* responsive */
-
-  
-  @media screen and (max-width: 1050px) {
-
-  .form-update-confrerie {
-    width: 85%;
-  }
-  }
-
-  
-  @media screen and (max-width: 500px) {
-
-.img-confreries {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 50px;
+    cursor: pointer;
 }
 
+.btn:hover {
+    background: var(--button-avatar);
+    text-decoration: none;
+}
+
+label {
+    color: var(--background-input);
+    font-size: 20px;
+}
+
+/* responsive */
+
+@media screen and (max-width: 1050px) {
     .form-update-confrerie {
-      width: 95%;
+        width: 85%;
     }
+}
+
+@media screen and (max-width: 500px) {
+    .img-confreries {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 50px;
     }
-
-
-  @media screen and (max-width: 400px) {
 
     .form-update-confrerie {
         width: 95%;
     }
+}
 
-    .img-confreries{
+@media screen and (max-width: 400px) {
+    .form-update-confrerie {
+        width: 95%;
+    }
+
+    .img-confreries {
         width: 12em;
     }
-  }
+}
