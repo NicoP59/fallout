@@ -198,6 +198,7 @@ const itemsArray = [
     ["img/items/Nukacola/nukaxtreme.webp", "Nuka X-treme"],
 
     // ITEMS
+    ["img/items/Items/canigou.png", "Canigou"],
     ["img/items/Items/med-x.webp", "Med-X"],
     ["img/items/Items/jet.webp", "Jet"],
     ["img/items/Items/stimpak.webp", "Stimpak"],
