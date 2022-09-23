@@ -1,3 +1,198 @@
+main {
+    font-family: monospace;
+}
+
+.retour {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 50px;
+    text-align: left;
+}
+
+.retour-a {
+    color: var(--color-h1h2);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.titre-usermanagement {
+    color: var(--color-h1h2);
+    background-color: var(--color-presentation);
+    margin-top: 100px;
+    text-align: center;
+    padding: 100px;
+    letter-spacing: 0.2em;
+    margin-bottom: 50px;
+}
+
+.title-users {
+    padding: 50px;
+    color: var(--color-h1h2);
+}
+
+.logo-vt {
+    margin-top: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 10px;
+}
+
+.div-carte-user {
+    border: var(--border-presentation);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.confrerie {
+    width: 4em;
+}
+
+.confrerie-img {
+    text-align: left;
+}
+
+.icon-user {
+    padding-top: 10px;
+    color: var(--background-input);
+    background-color: var(--color-presentation);
+}
+
+.bi-person-x {
+    color: #d42222;
+}
+
+.bi-person-check {
+    color: rgb(49, 179, 49);
+}
+
+.nom-prenom {
+    font-size: 15px;
+    padding: 10px 50px;
+    color: var(--background-input);
+    background-color: var(--color-presentation);
+}
+
+.email {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
 .avatar {
     width: 15em;
+}
+
+.email,
+.change {
+    color: var(--color-h1h2);
+}
+
+.change-type {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.change {
+    font-family: monospace;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.change:hover {
+    font-weight: bold;
+    color: var(--color-presentation);
+}
+
+.bi-arrow-clockwise {
+    color: var(--color-presentation);
+}
+
+.bi-trash3 {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    color: var(--background-input);
+    background-color: var(--color-presentation);
+    margin-bottom: 10px;
+}
+
+.no-admin,
+.no-user {
+    border: var(--border-presentation);
+    border-radius: 10px;
+    padding: 50px;
+    margin: auto;
+    width: 50%;
+    background-color: var(--color-presentation);
+    text-align: center;
+    margin-bottom: 150px;
+    color: var(--color-delivery);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1250px) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .titre-usermanagement {
+        font-size: 20px;
+        padding: 30px;
+    }
+
+    .logo-vt {
+        width: 200px;
+    }
+
+    .no-user,
+    .no-admin {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .no-admin,
+    .no-user {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .title-users {
+        padding: 0px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
 }

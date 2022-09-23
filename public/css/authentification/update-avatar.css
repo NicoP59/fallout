@@ -17,8 +17,8 @@ main {
     font-weight: bold;
 }
 
-
-.update-avatar, h3 {
+.update-avatar,
+h3 {
     color: var(--color-h1h2);
     padding-top: 15px;
     text-align: center;
@@ -54,8 +54,6 @@ main {
     border: var(--border-article-create);
 }
 
-
-
 .avatar-div {
     display: flex;
     justify-content: space-evenly;
@@ -72,29 +70,23 @@ main {
     background-color: var(--color-presentation);
     border: var(--border-article-create);
 }
- h3{
+h3 {
     color: #e2d447;
- }
+}
 
- .radio{
+.radio {
     text-align: center;
     padding-bottom: 20px;
- }
+}
 
-
-
-  .validate {
+.validate {
     margin-top: 50px;
     text-align: center;
 }
 
+/* TEST btn */
 
-
- /* TEST btn */
-
-
-
- .btn {
+.btn {
     background-color: var(--color-presentation);
     border-radius: 28px;
     font-family: Courier New;
@@ -104,24 +96,18 @@ main {
     text-decoration: none;
     border: solid #e2d447;
     border: var(--border-article-create);
-    cursor: pointer;   
-    
-  }
-  
-  .btn:hover {
+    cursor: pointer;
+}
+
+.btn:hover {
     background: var(--button-avatar);
     text-decoration: none;
-    
-  }
+}
 
+/* responsive */
 
-
-  /* responsive */
-
-  @media screen and (max-width: 500px) {
-
+@media screen and (max-width: 500px) {
     .form-update-avatar {
         width: 95%;
     }
-  }
-
+}

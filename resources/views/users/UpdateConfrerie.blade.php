@@ -8,6 +8,7 @@
     <main>
 
         <body>
+
             <p class="retour"><a href="/mon-profil" class="retour-a"><i class="bi bi-arrow-return-left"></i></a></p>
 
             <h1 class="update-confrerie">Choisissez votre organisation :</h1>
